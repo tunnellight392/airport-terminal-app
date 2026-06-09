@@ -1,0 +1,2580 @@
+{
+  "airports": [
+    {
+      "code": "ATL",
+      "mapUrl": "https://www.atl.com/maps/",
+      "name": "Hartsfield-Jackson Atlanta International Airport",
+      "city": "Atlanta",
+      "state": "GA",
+      "terminals": [
+        {
+          "name": "Domestic Terminal (North & South)",
+          "description": "Main domestic terminal connected to concourses T, A, B, C and D via the underground Plane Train.",
+          "concourses": [
+            { "name": "Concourse T", "gates": "T1-T17" },
+            { "name": "Concourse A", "gates": "A1-A33" },
+            { "name": "Concourse B", "gates": "B1-B36" },
+            { "name": "Concourse C", "gates": "C1-C45" },
+            { "name": "Concourse D", "gates": "D1-D44" }
+          ],
+          "transit": "Plane Train (underground people mover linking all concourses)",
+          "airlines": ["Delta Air Lines", "Southwest Airlines", "American Airlines", "United Airlines", "Frontier Airlines"]
+        },
+        {
+          "name": "Maynard H. Jackson Jr. International Terminal",
+          "description": "International arrivals and departures terminal serving concourses E and F.",
+          "concourses": [
+            { "name": "Concourse E", "gates": "E1-E36" },
+            { "name": "Concourse F", "gates": "F1-F12" }
+          ],
+          "airlines": ["Delta Air Lines", "Korean Air", "Lufthansa", "Air France", "KLM", "British Airways", "Qatar Airways", "Etihad Airways"]
+        }
+      ]
+    },
+    {
+      "code": "LAX",
+      "mapUrl": "https://www.flylax.com/lax-terminal-maps",
+      "name": "Los Angeles International Airport",
+      "city": "Los Angeles",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Southwest Airlines' primary West Coast hub terminal.",
+          "concourses": [ { "name": "Gates 1-15", "gates": "1-15" } ],
+          "airlines": ["Southwest Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Domestic and international terminal connected to TBIT.",
+          "concourses": [ { "name": "Gates 21-28", "gates": "21-28" } ],
+          "airlines": ["Delta Air Lines", "Aeromexico", "WestJet"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "Delta Air Lines terminal with connector to TBIT.",
+          "concourses": [ { "name": "Gates 30-39", "gates": "30-39" } ],
+          "airlines": ["Delta Air Lines"]
+        },
+        {
+          "name": "Tom Bradley International Terminal (TBIT)",
+          "description": "Primary international terminal for long-haul foreign carriers.",
+          "concourses": [ { "name": "Gates 130-159", "gates": "130-159" } ],
+          "airlines": ["Qantas", "Emirates", "Singapore Airlines", "ANA", "Air New Zealand", "Cathay Pacific", "Lufthansa", "Qatar Airways"]
+        },
+        {
+          "name": "Terminal 4",
+          "description": "American Airlines terminal connected to TBIT.",
+          "concourses": [ { "name": "Gates 40-49", "gates": "40-49" } ],
+          "airlines": ["American Airlines"]
+        },
+        {
+          "name": "Terminal 5",
+          "description": "Serves multiple domestic and ultra low-cost carriers.",
+          "concourses": [ { "name": "Gates 50-59", "gates": "50-59" } ],
+          "airlines": ["American Airlines", "Frontier Airlines", "JetBlue"]
+        },
+        {
+          "name": "Terminal 6",
+          "description": "Alaska and partner airlines terminal.",
+          "concourses": [ { "name": "Gates 60-69", "gates": "60-69" } ],
+          "airlines": ["Alaska Airlines", "Sun Country Airlines"]
+        },
+        {
+          "name": "Terminals 7 & 8",
+          "description": "United Airlines hub terminals.",
+          "concourses": [ { "name": "Gates 70-88", "gates": "70-88" } ],
+          "airlines": ["United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ORD",
+      "mapUrl": "https://www.flychicago.com/ohare/map/Pages/printablemaps.aspx",
+      "name": "Chicago O'Hare International Airport",
+      "city": "Chicago",
+      "state": "IL",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "United Airlines hub with concourses B and C.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B22" },
+            { "name": "Concourse C", "gates": "C1-C32" }
+          ],
+          "airlines": ["United Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Domestic terminal with concourses E and F.",
+          "concourses": [
+            { "name": "Concourse E", "gates": "E1-E15" },
+            { "name": "Concourse F", "gates": "F1-F14" }
+          ],
+          "airlines": ["United Airlines", "Delta Air Lines", "Air Canada"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "American Airlines hub with concourses G, H, K and L.",
+          "concourses": [
+            { "name": "Concourse G", "gates": "G1-G21" },
+            { "name": "Concourse H", "gates": "H1-H18" },
+            { "name": "Concourse K", "gates": "K1-K19" },
+            { "name": "Concourse L", "gates": "L1-L10" }
+          ],
+          "airlines": ["American Airlines", "Alaska Airlines", "JetBlue"]
+        },
+        {
+          "name": "Terminal 5",
+          "description": "International terminal with concourse M.",
+          "concourses": [ { "name": "Concourse M", "gates": "M1-M21" } ],
+          "airlines": ["Lufthansa", "British Airways", "Emirates", "Frontier Airlines", "Aer Lingus", "Qatar Airways", "Etihad Airways"]
+        }
+      ]
+    },
+    {
+      "code": "DFW",
+      "mapUrl": "https://www.dfwairport.com/map/",
+      "name": "Dallas/Fort Worth International Airport",
+      "city": "Dallas",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "American Airlines domestic terminal.",
+          "concourses": [ { "name": "Gates A8-A39", "gates": "A8-A39" } ],
+          "airlines": ["American Airlines"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "American Eagle and regional operations.",
+          "concourses": [ { "name": "Gates B1-B49", "gates": "B1-B49" } ],
+          "airlines": ["American Airlines", "American Eagle"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "American Airlines domestic terminal.",
+          "concourses": [ { "name": "Gates C2-C39", "gates": "C2-C39" } ],
+          "airlines": ["American Airlines"]
+        },
+        {
+          "name": "Terminal D (International)",
+          "description": "Primary international terminal for global carriers.",
+          "concourses": [ { "name": "Gates D6-D40", "gates": "D6-D40" } ],
+          "airlines": ["American Airlines", "British Airways", "Lufthansa", "Qatar Airways", "Emirates", "Japan Airlines", "Korean Air"]
+        },
+        {
+          "name": "Terminal E",
+          "description": "Domestic terminal for non-American carriers.",
+          "concourses": [ { "name": "Gates E2-E38", "gates": "E2-E38" } ],
+          "airlines": ["Delta Air Lines", "United Airlines", "Southwest Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "DEN",
+      "mapUrl": "https://maps.flydenver.com/",
+      "name": "Denver International Airport",
+      "city": "Denver",
+      "state": "CO",
+      "terminals": [
+        {
+          "name": "Jeppesen Terminal",
+          "description": "Single landside terminal connected to three airside concourses by an underground train.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A50" },
+            { "name": "Concourse B", "gates": "B1-B63" },
+            { "name": "Concourse C", "gates": "C1-C50" }
+          ],
+          "transit": "Concourse Train (underground automated guideway transit)",
+          "airlines": ["United Airlines", "Southwest Airlines", "Frontier Airlines", "Delta Air Lines", "American Airlines", "Alaska Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "JFK",
+      "mapUrl": "https://www.jfkairport.com/explore-jfk/airport-map",
+      "name": "John F. Kennedy International Airport",
+      "city": "New York",
+      "state": "NY",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "International terminal for a consortium of foreign carriers.",
+          "concourses": [ { "name": "Gates 1-12", "gates": "1-12" } ],
+          "airlines": ["Air France", "Lufthansa", "Japan Airlines", "Korean Air", "Turkish Airlines", "Etihad Airways"]
+        },
+        {
+          "name": "Terminal 4",
+          "description": "Delta Air Lines international hub terminal.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A7" },
+            { "name": "Concourse B", "gates": "B20-B55" }
+          ],
+          "airlines": ["Delta Air Lines", "KLM", "Virgin Atlantic", "Emirates", "Singapore Airlines"]
+        },
+        {
+          "name": "Terminal 5",
+          "description": "JetBlue Airways primary hub terminal.",
+          "concourses": [ { "name": "Gates 1-30", "gates": "1-30" } ],
+          "airlines": ["JetBlue", "Aer Lingus", "Cape Air"]
+        },
+        {
+          "name": "Terminal 7",
+          "description": "International terminal serving British Airways and partners.",
+          "concourses": [ { "name": "Gates 1-12", "gates": "1-12" } ],
+          "airlines": ["British Airways", "Iberia", "ANA"]
+        },
+        {
+          "name": "Terminal 8",
+          "description": "American Airlines and oneworld partner hub.",
+          "concourses": [
+            { "name": "Main Concourse", "gates": "1-16" },
+            { "name": "Concourse B", "gates": "31-47" }
+          ],
+          "airlines": ["American Airlines", "British Airways", "Qatar Airways", "Qantas", "Royal Air Maroc"]
+        }
+      ]
+    },
+    {
+      "code": "SFO",
+      "mapUrl": "https://www.flysfo.com/maps",
+      "name": "San Francisco International Airport",
+      "city": "San Francisco",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal 1 (Harvey Milk)",
+          "description": "Domestic terminal with boarding area B and C.",
+          "concourses": [
+            { "name": "Boarding Area B", "gates": "B1-B27" },
+            { "name": "Boarding Area C", "gates": "C1-C12" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "JetBlue", "Frontier Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Domestic terminal with boarding area D.",
+          "concourses": [ { "name": "Boarding Area D", "gates": "D1-D16" } ],
+          "airlines": ["American Airlines", "Alaska Airlines"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "United Airlines domestic hub terminal.",
+          "concourses": [
+            { "name": "Boarding Area E", "gates": "E1-E12" },
+            { "name": "Boarding Area F", "gates": "F1-F23" }
+          ],
+          "airlines": ["United Airlines"]
+        },
+        {
+          "name": "International Terminal",
+          "description": "Boarding areas A and G for international flights.",
+          "concourses": [
+            { "name": "Boarding Area A", "gates": "A1-A12" },
+            { "name": "Boarding Area G", "gates": "G1-G14" }
+          ],
+          "airlines": ["United Airlines", "Cathay Pacific", "Singapore Airlines", "Lufthansa", "Air France", "EVA Air", "Emirates", "Qatar Airways"]
+        }
+      ]
+    },
+    {
+      "code": "SEA",
+      "mapUrl": "https://www.portseattle.org/sea/maps",
+      "name": "Seattle-Tacoma International Airport",
+      "city": "Seattle",
+      "state": "WA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Single terminal with four concourses and two satellite terminals reached by the underground SATELLITE TRANSIT SYSTEM.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A14" },
+            { "name": "Concourse B", "gates": "B1-B15" },
+            { "name": "Concourse C", "gates": "C1-C22" },
+            { "name": "Concourse D", "gates": "D1-D11" },
+            { "name": "North Satellite", "gates": "N1-N20" },
+            { "name": "South Satellite", "gates": "S1-S16" }
+          ],
+          "transit": "Satellite Transit System (STS) underground trains to the satellites",
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "Horizon Air", "United Airlines", "American Airlines", "Emirates", "Korean Air", "Qatar Airways"]
+        }
+      ]
+    },
+    {
+      "code": "LAS",
+      "mapUrl": "https://www.harryreidairport.com/map",
+      "name": "Harry Reid International Airport",
+      "city": "Las Vegas",
+      "state": "NV",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Primary domestic terminal with concourses B, C and D.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B15" },
+            { "name": "Concourse C", "gates": "C1-C25" },
+            { "name": "Concourse D", "gates": "D1-D59" }
+          ],
+          "airlines": ["Southwest Airlines", "Frontier Airlines", "Delta Air Lines"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "Domestic and international terminal with concourse E.",
+          "concourses": [
+            { "name": "Concourse D (shared)", "gates": "D1-D59" },
+            { "name": "Concourse E", "gates": "E1-E14" }
+          ],
+          "airlines": ["American Airlines", "United Airlines", "JetBlue", "Alaska Airlines", "British Airways", "Virgin Atlantic", "WestJet"]
+        }
+      ]
+    },
+    {
+      "code": "MCO",
+      "mapUrl": "https://flymco.com/terminal-maps/",
+      "name": "Orlando International Airport",
+      "city": "Orlando",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Landside terminal connected to airside gates 1-29 and 100-129.",
+          "concourses": [
+            { "name": "Airside 1", "gates": "1-29" },
+            { "name": "Airside 4", "gates": "100-129" }
+          ],
+          "transit": "Airside Shuttle (automated people mover from the landside terminal to each airside)",
+          "airlines": ["American Airlines", "Delta Air Lines", "JetBlue", "Alaska Airlines", "Frontier Airlines"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Landside terminal connected to airside gates 30-59 and 70-99.",
+          "concourses": [
+            { "name": "Airside 2", "gates": "30-59" },
+            { "name": "Airside 3", "gates": "70-99" }
+          ],
+          "airlines": ["Southwest Airlines", "United Airlines", "Lufthansa", "British Airways"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "Modern terminal serving domestic and international carriers, gates C230-C249.",
+          "concourses": [ { "name": "Concourse C", "gates": "230-249" } ],
+          "airlines": ["JetBlue", "Emirates", "Aer Lingus", "Azul", "GOL", "Caribbean Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "MIA",
+      "mapUrl": "https://www.miami-airport.com/maps.asp",
+      "name": "Miami International Airport",
+      "city": "Miami",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "North Terminal",
+          "description": "American Airlines hub, Concourse D.",
+          "concourses": [ { "name": "Concourse D", "gates": "D1-D60" } ],
+          "airlines": ["American Airlines"]
+        },
+        {
+          "name": "Central Terminal",
+          "description": "Domestic and international carriers across concourses E, F and G.",
+          "concourses": [
+            { "name": "Concourse E", "gates": "E1-E33" },
+            { "name": "Concourse F", "gates": "F1-F24" },
+            { "name": "Concourse G", "gates": "G1-G19" }
+          ],
+          "airlines": ["United Airlines", "Delta Air Lines", "Lufthansa", "British Airways", "Frontier Airlines"]
+        },
+        {
+          "name": "South Terminal",
+          "description": "International terminal with concourses H and J.",
+          "concourses": [
+            { "name": "Concourse H", "gates": "H1-H17" },
+            { "name": "Concourse J", "gates": "J1-J18" }
+          ],
+          "airlines": ["LATAM", "Avianca", "Iberia", "Air France", "Turkish Airlines", "Qatar Airways", "Emirates"]
+        }
+      ]
+    },
+    {
+      "code": "PHX",
+      "mapUrl": "https://www.skyharbor.com/maps-directions/",
+      "name": "Phoenix Sky Harbor International Airport",
+      "city": "Phoenix",
+      "state": "AZ",
+      "terminals": [
+        {
+          "name": "Terminal 3",
+          "description": "Domestic terminal with concourses N and S.",
+          "concourses": [
+            { "name": "North Concourse", "gates": "N1-N15" },
+            { "name": "South Concourse", "gates": "S1-S12" }
+          ],
+          "airlines": ["Delta Air Lines", "United Airlines", "Alaska Airlines", "JetBlue", "Frontier Airlines"]
+        },
+        {
+          "name": "Terminal 4",
+          "description": "American Airlines and Southwest hub with concourses A through D.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A18" },
+            { "name": "Concourse B", "gates": "B1-B28" },
+            { "name": "Concourse C", "gates": "C1-C16" },
+            { "name": "Concourse D", "gates": "D1-D8" }
+          ],
+          "airlines": ["American Airlines", "Southwest Airlines", "British Airways", "WestJet", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "IAH",
+      "mapUrl": "https://www.fly2houston.com/iah/map/",
+      "name": "George Bush Intercontinental Airport",
+      "city": "Houston",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Domestic terminal for non-United carriers.",
+          "concourses": [ { "name": "Gates A1-A30", "gates": "A1-A30" } ],
+          "airlines": ["Delta Air Lines", "Frontier Airlines", "Alaska Airlines"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "United Express regional terminal.",
+          "concourses": [ { "name": "Gates B1-B88", "gates": "B1-B88" } ],
+          "airlines": ["United Airlines", "United Express"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "United Airlines mainline domestic hub terminal.",
+          "concourses": [
+            { "name": "Concourse C North", "gates": "C1-C45" },
+            { "name": "Concourse C South", "gates": "C46-C60" }
+          ],
+          "airlines": ["United Airlines"]
+        },
+        {
+          "name": "Terminal D (Mickey Leland International)",
+          "description": "Primary international terminal.",
+          "concourses": [ { "name": "Gates D1-D12", "gates": "D1-D12" } ],
+          "airlines": ["Lufthansa", "British Airways", "Emirates", "Air France", "KLM", "Qatar Airways"]
+        },
+        {
+          "name": "Terminal E",
+          "description": "United international and domestic widebody operations.",
+          "concourses": [ { "name": "Gates E1-E24", "gates": "E1-E24" } ],
+          "airlines": ["United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "EWR",
+      "mapUrl": "https://www.newarkairport.com/at-airport/airport-maps",
+      "name": "Newark Liberty International Airport",
+      "city": "Newark",
+      "state": "NJ",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Modern terminal serving multiple domestic carriers.",
+          "concourses": [ { "name": "Gates A1-A28", "gates": "A1-A28" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "JetBlue", "Air Canada"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "International terminal for foreign carriers.",
+          "concourses": [
+            { "name": "Concourse B1", "gates": "B40-B47" },
+            { "name": "Concourse B2/B3", "gates": "B51-B68" }
+          ],
+          "airlines": ["Lufthansa", "British Airways", "Emirates", "Air France", "Porter Airlines"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "United Airlines major hub terminal.",
+          "concourses": [
+            { "name": "Concourse C1", "gates": "C70-C99" },
+            { "name": "Concourse C2", "gates": "C100-C123" },
+            { "name": "Concourse C3", "gates": "C124-C139" }
+          ],
+          "airlines": ["United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BOS",
+      "mapUrl": "https://maps.massport.com/",
+      "name": "Boston Logan International Airport",
+      "city": "Boston",
+      "state": "MA",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Delta Air Lines terminal.",
+          "concourses": [ { "name": "Gates A1-A22", "gates": "A1-A22" } ],
+          "airlines": ["Delta Air Lines", "WestJet"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "American and United domestic terminal.",
+          "concourses": [
+            { "name": "Concourse B1", "gates": "B1-B18" },
+            { "name": "Concourse B2", "gates": "B19-B36" }
+          ],
+          "airlines": ["American Airlines", "United Airlines", "Southwest Airlines"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "JetBlue primary hub terminal.",
+          "concourses": [ { "name": "Gates C1-C42", "gates": "C1-C42" } ],
+          "airlines": ["JetBlue", "Cape Air", "Emirates"]
+        },
+        {
+          "name": "Terminal E",
+          "description": "International arrivals and departures terminal.",
+          "concourses": [ { "name": "Gates E1-E18", "gates": "E1-E18" } ],
+          "airlines": ["Lufthansa", "British Airways", "Aer Lingus", "Air France", "TAP Air Portugal", "Cathay Pacific", "Qatar Airways", "Etihad Airways"]
+        }
+      ]
+    },
+    {
+      "code": "MSP",
+      "mapUrl": "https://maps.mspairport.com/",
+      "name": "Minneapolis-Saint Paul International Airport",
+      "city": "Minneapolis",
+      "state": "MN",
+      "terminals": [
+        {
+          "name": "Terminal 1 (Lindbergh)",
+          "description": "Delta Air Lines hub with concourses A through G.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A18" },
+            { "name": "Concourse C", "gates": "C1-C26" },
+            { "name": "Concourse F", "gates": "F1-F14" },
+            { "name": "Concourse G", "gates": "G1-G22" }
+          ],
+          "airlines": ["Delta Air Lines", "United Airlines", "American Airlines", "Air France", "KLM", "Aer Lingus"]
+        },
+        {
+          "name": "Terminal 2 (Humphrey)",
+          "description": "Low-cost and leisure carrier terminal.",
+          "concourses": [ { "name": "Concourse H", "gates": "H1-H14" } ],
+          "airlines": ["Southwest Airlines", "Sun Country Airlines", "JetBlue", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "DTW",
+      "mapUrl": "https://www.metroairport.com/at-dtw/maps",
+      "name": "Detroit Metropolitan Wayne County Airport",
+      "city": "Detroit",
+      "state": "MI",
+      "terminals": [
+        {
+          "name": "McNamara Terminal",
+          "description": "Delta Air Lines hub with concourses A, B and C connected by the ExpressTram.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A78" },
+            { "name": "Concourse B", "gates": "B1-B22" },
+            { "name": "Concourse C", "gates": "C1-C30" }
+          ],
+          "transit": "ExpressTram (overhead tram running the length of Concourse A)",
+          "airlines": ["Delta Air Lines", "Air France", "KLM", "Virgin Atlantic", "WestJet"]
+        },
+        {
+          "name": "North Terminal",
+          "description": "Terminal for non-Delta domestic and international carriers.",
+          "concourses": [ { "name": "Concourse D", "gates": "D1-D26" } ],
+          "airlines": ["American Airlines", "United Airlines", "Southwest Airlines", "Frontier Airlines", "Lufthansa"]
+        }
+      ]
+    },
+    {
+      "code": "CLT",
+      "mapUrl": "https://www.cltairport.com/airport-info/website-maps/",
+      "name": "Charlotte Douglas International Airport",
+      "city": "Charlotte",
+      "state": "NC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "American Airlines hub with five concourses A through E in a single connected terminal.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A29" },
+            { "name": "Concourse B", "gates": "B1-B16" },
+            { "name": "Concourse C", "gates": "C1-C18" },
+            { "name": "Concourse D", "gates": "D1-D14" },
+            { "name": "Concourse E", "gates": "E1-E38" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "JetBlue", "Lufthansa", "British Airways", "Etihad Airways"]
+        }
+      ]
+    },
+    {
+      "code": "PHL",
+      "mapUrl": "https://maps.phl.org/",
+      "name": "Philadelphia International Airport",
+      "city": "Philadelphia",
+      "state": "PA",
+      "terminals": [
+        {
+          "name": "Terminals A-East & A-West",
+          "description": "International and domestic terminal complex.",
+          "concourses": [
+            { "name": "Terminal A-West", "gates": "A1-A26" },
+            { "name": "Terminal A-East", "gates": "A14-A21" }
+          ],
+          "airlines": ["American Airlines", "British Airways", "Lufthansa", "Qatar Airways", "Aer Lingus"]
+        },
+        {
+          "name": "Terminals B & C",
+          "description": "American Airlines domestic hub concourses.",
+          "concourses": [
+            { "name": "Terminal B", "gates": "B1-B16" },
+            { "name": "Terminal C", "gates": "C16-C32" }
+          ],
+          "airlines": ["American Airlines"]
+        },
+        {
+          "name": "Terminals D & E",
+          "description": "Domestic terminal for non-American carriers.",
+          "concourses": [
+            { "name": "Terminal D", "gates": "D1-D16" },
+            { "name": "Terminal E", "gates": "E1-E17" }
+          ],
+          "airlines": ["Delta Air Lines", "United Airlines", "Southwest Airlines", "JetBlue", "Alaska Airlines", "Frontier Airlines"]
+        },
+        {
+          "name": "Terminal F",
+          "description": "American Eagle regional operations.",
+          "concourses": [ { "name": "Terminal F", "gates": "F1-F39" } ],
+          "airlines": ["American Airlines", "American Eagle"]
+        }
+      ]
+    },
+    {
+      "code": "FLL",
+      "mapUrl": "https://www.broward.org/Airport/Pages/maps.aspx",
+      "name": "Fort Lauderdale-Hollywood International Airport",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "The Yellow Terminal, with concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A4" },
+            { "name": "Concourse B", "gates": "B5-B14" },
+            { "name": "Concourse C", "gates": "C15-C26" }
+          ],
+          "airlines": ["Southwest Airlines", "Allegiant Air", "Avelo Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "The Red Terminal, home to Concourse D.",
+          "concourses": [ { "name": "Concourse D", "gates": "D1-D9" } ],
+          "airlines": ["Delta Air Lines", "Air Canada", "WestJet"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "The Purple Terminal, with concourses E and F.",
+          "concourses": [
+            { "name": "Concourse E", "gates": "E1-E10" },
+            { "name": "Concourse F", "gates": "F1-F10" }
+          ],
+          "airlines": ["JetBlue", "American Airlines"]
+        },
+        {
+          "name": "Terminal 4",
+          "description": "The Green Terminal, home to Concourse G and most international flights.",
+          "concourses": [ { "name": "Concourse G", "gates": "G1-G14" } ],
+          "airlines": ["United Airlines", "Emirates", "Norse Atlantic Airways", "Azul"]
+        }
+      ]
+    },
+    {
+      "code": "BWI",
+      "mapUrl": "https://bwiairport.com/at-bwi/maps/",
+      "name": "Baltimore/Washington International Thurgood Marshall Airport",
+      "city": "Baltimore",
+      "state": "MD",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal wrapped around concourses A through E; A/B/C share one secure zone and D/E another.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A14" },
+            { "name": "Concourse B", "gates": "B1-B15" },
+            { "name": "Concourse C", "gates": "C1-C12" },
+            { "name": "Concourse D", "gates": "D1-D17" },
+            { "name": "Concourse E", "gates": "E1-E10" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "JetBlue", "Alaska Airlines", "British Airways", "Condor", "Contour Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "DCA",
+      "mapUrl": "https://www.flyreagan.com/travel-information/terminal-map",
+      "name": "Ronald Reagan Washington National Airport",
+      "city": "Arlington",
+      "state": "VA",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Compact terminal with a single concourse (Concourse A).",
+          "concourses": [ { "name": "Concourse A", "gates": "A1-A9" } ],
+          "airlines": ["Southwest Airlines", "Frontier Airlines", "Air Canada"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Larger terminal with concourses B, C, D and E.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B10-B22" },
+            { "name": "Concourse C", "gates": "C25-C38" },
+            { "name": "Concourse D", "gates": "D40-D49" },
+            { "name": "Concourse E", "gates": "E50-E59" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines", "JetBlue"]
+        }
+      ]
+    },
+    {
+      "code": "IAD",
+      "mapUrl": "https://www.flydulles.com/travel-information/airport-and-terminal-maps",
+      "name": "Washington Dulles International Airport",
+      "city": "Dulles",
+      "state": "VA",
+      "terminals": [
+        {
+          "name": "Main Terminal (Concourse Z)",
+          "description": "Ground-level gates in the main terminal, reached without the train.",
+          "concourses": [ { "name": "Concourse Z", "gates": "Z1-Z4" } ],
+          "transit": "AeroTrain (underground people mover to the midfield concourses)",
+          "airlines": ["United Airlines", "Air Canada"]
+        },
+        {
+          "name": "Concourses A & B",
+          "description": "Midfield terminal for non-United and international carriers, reached by the AeroTrain.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A47" },
+            { "name": "Concourse B", "gates": "B37-B79" }
+          ],
+          "transit": "AeroTrain (underground people mover to/from the main terminal)",
+          "airlines": ["Air France", "KLM", "Lufthansa", "Virgin Atlantic", "Etihad Airways", "American Airlines", "Delta Air Lines", "Frontier Airlines", "Southwest Airlines", "Condor", "Qatar Airways"]
+        },
+        {
+          "name": "Concourses C & D",
+          "description": "Midfield terminal serving as United Airlines' domestic and international hub.",
+          "concourses": [
+            { "name": "Concourse C", "gates": "C1-C28" },
+            { "name": "Concourse D", "gates": "D1-D32" }
+          ],
+          "transit": "AeroTrain (underground people mover to/from the main terminal)",
+          "airlines": ["United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "MDW",
+      "mapUrl": "https://www.flychicago.com/midway/map/pages/default.aspx",
+      "name": "Chicago Midway International Airport",
+      "city": "Chicago",
+      "state": "IL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single compact terminal with three walkable concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A19" },
+            { "name": "Concourse B", "gates": "B1-B26" },
+            { "name": "Concourse C", "gates": "C1-C3" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "Allegiant Air", "Frontier Airlines", "Porter Airlines", "Volaris", "Avelo Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "SLC",
+      "mapUrl": "https://slcairport.com/maps/airport-map/",
+      "name": "Salt Lake City International Airport",
+      "city": "Salt Lake City",
+      "state": "UT",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Rebuilt single terminal with concourses A and B linked by pedestrian tunnels.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A47" },
+            { "name": "Concourse B", "gates": "B1-B31" }
+          ],
+          "airlines": ["Delta Air Lines", "Southwest Airlines", "Alaska Airlines", "American Airlines", "United Airlines", "Frontier Airlines", "JetBlue"]
+        }
+      ]
+    },
+    {
+      "code": "SAN",
+      "mapUrl": "https://www.google.com/search?q=SAN+San+Diego+International+Airport+official+terminal+map",
+      "name": "San Diego International Airport",
+      "city": "San Diego",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Newly rebuilt terminal serving Southwest and other domestic carriers.",
+          "concourses": [ { "name": "Terminal 1", "gates": "1-19" } ],
+          "airlines": ["Southwest Airlines", "Frontier Airlines", "JetBlue", "Allegiant Air", "Sun Country Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "East and West concourses handling most domestic and all international flights.",
+          "concourses": [
+            { "name": "Terminal 2 East", "gates": "20-30" },
+            { "name": "Terminal 2 West", "gates": "31-51" }
+          ],
+          "airlines": ["American Airlines", "Alaska Airlines", "Delta Air Lines", "United Airlines", "Hawaiian Airlines", "British Airways", "Japan Airlines", "Air Canada", "Lufthansa"]
+        }
+      ]
+    },
+    {
+      "code": "TPA",
+      "mapUrl": "https://www.tampaairport.com/airport-maps",
+      "name": "Tampa International Airport",
+      "city": "Tampa",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Central landside terminal connected to four airside satellites by automated people movers.",
+          "concourses": [
+            { "name": "Airside A", "gates": "1-12" },
+            { "name": "Airside C", "gates": "30-45" },
+            { "name": "Airside E", "gates": "62-69" },
+            { "name": "Airside F", "gates": "70-90" }
+          ],
+          "transit": "Airside Shuttles (automated people movers to each airside)",
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "Frontier Airlines", "Air Canada", "British Airways", "JetBlue", "United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "HNL",
+      "mapUrl": "https://airports.hawaii.gov/hnl/airport-map/",
+      "name": "Daniel K. Inouye International Airport",
+      "city": "Honolulu",
+      "state": "HI",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Formerly the Interisland Terminal; home base for Hawaiian Airlines.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A20" },
+            { "name": "Concourse B", "gates": "B1-B5" }
+          ],
+          "transit": "Wiki Wiki Shuttle (free inter-terminal bus)",
+          "airlines": ["Hawaiian Airlines", "Southwest Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "The largest terminal, handling mainland domestic and international flights.",
+          "concourses": [
+            { "name": "Concourse C", "gates": "C1-C9" },
+            { "name": "Concourse D", "gates": "D1-D2" },
+            { "name": "Concourse E", "gates": "E1-E10" },
+            { "name": "Concourse G", "gates": "G1-G10" }
+          ],
+          "transit": "Wiki Wiki Shuttle (free inter-terminal bus)",
+          "airlines": ["Hawaiian Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines", "Japan Airlines", "ANA", "Korean Air", "Air Canada"]
+        },
+        {
+          "name": "Terminal 3",
+          "description": "The Commuter Terminal serving regional and inter-island propeller flights.",
+          "concourses": [ { "name": "Commuter Gates", "gates": "1-7" } ],
+          "airlines": ["Mokulele Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "PDX",
+      "mapUrl": "https://flypdx.com/Map",
+      "name": "Portland International Airport",
+      "city": "Portland",
+      "state": "OR",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single walkable terminal with concourses B, C, D and E.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B11" },
+            { "name": "Concourse C", "gates": "C1-C23" },
+            { "name": "Concourse D", "gates": "D1-D15" },
+            { "name": "Concourse E", "gates": "E1-E13" }
+          ],
+          "airlines": ["Alaska Airlines", "Horizon Air", "Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "JetBlue", "Hawaiian Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "DAL",
+      "mapUrl": "https://www.dallas-lovefield.com/passenger-services/terminal-map",
+      "name": "Dallas Love Field",
+      "city": "Dallas",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single T-shaped terminal with 20 walkable gates.",
+          "concourses": [ { "name": "Gates 1-20", "gates": "1-20" } ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines"]
+        }
+      ]
+    },
+    {
+      "code": "HOU",
+      "mapUrl": "https://www.fly2houston.com/hou/map/",
+      "name": "William P. Hobby Airport",
+      "city": "Houston",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with a domestic Central Concourse and an international West Concourse.",
+          "concourses": [
+            { "name": "Central Concourse", "gates": "1-30" },
+            { "name": "West Concourse", "gates": "40-44" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "Frontier Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "SMF",
+      "mapUrl": "https://www.google.com/search?q=SMF+Sacramento+International+Airport+official+terminal+map",
+      "name": "Sacramento International Airport",
+      "city": "Sacramento",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Houses Concourse A, used by legacy carriers.",
+          "concourses": [ { "name": "Concourse A", "gates": "A1-A17" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Air Canada"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Larger terminal whose gates sit on a separate concourse reached by an automated people mover.",
+          "concourses": [ { "name": "Concourse B", "gates": "B1-B19" } ],
+          "transit": "Automated People Mover (to the Concourse B gates)",
+          "airlines": ["Southwest Airlines", "Alaska Airlines", "JetBlue", "Frontier Airlines", "Hawaiian Airlines", "Aeromexico", "Volaris"]
+        }
+      ]
+    },
+    {
+      "code": "SJC",
+      "mapUrl": "https://maps.flysanjose.com/",
+      "name": "Norman Y. Mineta San Jose International Airport",
+      "city": "San Jose",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "Handles legacy carriers and all international arrivals.",
+          "concourses": [ { "name": "Terminal A", "gates": "1-16" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "British Airways", "ANA", "Air Canada"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Main hub for Southwest and Alaska.",
+          "concourses": [ { "name": "Terminal B", "gates": "B17-B35" } ],
+          "airlines": ["Southwest Airlines", "Alaska Airlines", "JetBlue", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "AUS",
+      "mapUrl": "https://airportmaps.flyaustin.com/",
+      "name": "Austin-Bergstrom International Airport",
+      "city": "Austin",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Barbara Jordan Terminal",
+          "description": "The main terminal with West, Central and East concourses after a single checkpoint.",
+          "concourses": [
+            { "name": "West Concourse", "gates": "1-12" },
+            { "name": "Central Concourse", "gates": "13-23" },
+            { "name": "East Concourse", "gates": "24-34" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "Alaska Airlines", "JetBlue", "Frontier Airlines", "British Airways", "Lufthansa", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "BNA",
+      "mapUrl": "https://map.flynashville.com/",
+      "name": "Nashville International Airport",
+      "city": "Nashville",
+      "state": "TN",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with walkable concourses B, C and D plus the international T Gates.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B11" },
+            { "name": "Concourse C", "gates": "C1-C27" },
+            { "name": "Concourse D", "gates": "D1-D12" },
+            { "name": "T Gates (International)", "gates": "T1-T5" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Alaska Airlines", "British Airways", "Air Canada", "WestJet"]
+        }
+      ]
+    },
+    {
+      "code": "STL",
+      "mapUrl": "https://www.flystl.com/terminal-maps/",
+      "name": "St. Louis Lambert International Airport",
+      "city": "St. Louis",
+      "state": "MO",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Concourses A and C serving most domestic carriers.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A2-A21" },
+            { "name": "Concourse C", "gates": "C1-C30" }
+          ],
+          "airlines": ["Delta Air Lines", "United Airlines", "American Airlines", "Alaska Airlines", "Frontier Airlines", "Air Canada"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Concourse E, home to Southwest and international arrivals.",
+          "concourses": [ { "name": "Concourse E", "gates": "E4-E40" } ],
+          "airlines": ["Southwest Airlines", "Lufthansa"]
+        }
+      ]
+    },
+    {
+      "code": "MCI",
+      "mapUrl": "https://www.google.com/search?q=MCI+Kansas+City+International+Airport+official+terminal+map",
+      "name": "Kansas City International Airport",
+      "city": "Kansas City",
+      "state": "MO",
+      "terminals": [
+        {
+          "name": "New Single Terminal",
+          "description": "Modern single terminal (opened 2023) with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A20" },
+            { "name": "Concourse B", "gates": "B40-B69" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines", "Allegiant Air", "Frontier Airlines", "Sun Country Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "RDU",
+      "mapUrl": "https://www.rdu.com/maps-and-directions/",
+      "name": "Raleigh-Durham International Airport",
+      "city": "Raleigh",
+      "state": "NC",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Concourse A serving Southwest and low-cost carriers.",
+          "concourses": [ { "name": "Concourse A", "gates": "A1-A9" } ],
+          "airlines": ["Southwest Airlines", "Alaska Airlines", "Avelo Airlines", "Breeze Airways", "Sun Country Airlines"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Concourses C and D serving the legacy carriers and international flights.",
+          "concourses": [
+            { "name": "Concourse C", "gates": "C1-C25" },
+            { "name": "Concourse D", "gates": "D1-D20" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "MSY",
+      "mapUrl": "https://maps.flymsy.com/",
+      "name": "Louis Armstrong New Orleans International Airport",
+      "city": "New Orleans",
+      "state": "LA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal (opened 2019) with three walkable concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B14" },
+            { "name": "Concourse C", "gates": "C1-C15" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Frontier Airlines", "Alaska Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "SNA",
+      "mapUrl": "https://www.ocair.com/maps/",
+      "name": "John Wayne Airport, Orange County",
+      "city": "Santa Ana",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "North end of the Thomas F. Riley terminal.",
+          "concourses": [ { "name": "Terminal A", "gates": "1-8" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Air Canada", "Breeze Airways", "WestJet"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Center section of the terminal.",
+          "concourses": [ { "name": "Terminal B", "gates": "9-15" } ],
+          "airlines": ["Alaska Airlines", "United Airlines"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "South end of the terminal, serving low-cost and Southwest flights.",
+          "concourses": [ { "name": "Terminal C", "gates": "16-22" } ],
+          "airlines": ["Southwest Airlines", "Allegiant Air", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "OAK",
+      "mapUrl": "https://maps.oaklandairport.com/",
+      "name": "San Francisco Bay Oakland International Airport",
+      "city": "Oakland",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal 1",
+          "description": "Serves all carriers except Southwest, plus international flights.",
+          "concourses": [ { "name": "Terminal 1", "gates": "1-17" } ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "Allegiant Air", "Hawaiian Airlines", "Volaris", "Viva Aerobus"]
+        },
+        {
+          "name": "Terminal 2",
+          "description": "Southwest Airlines' terminal, connected to Terminal 1 post-security.",
+          "concourses": [ { "name": "Terminal 2", "gates": "20-32" } ],
+          "airlines": ["Southwest Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "RSW",
+      "mapUrl": "https://www.flylcpa.com/at-the-airport/terminal-maps/",
+      "name": "Southwest Florida International Airport",
+      "city": "Fort Myers",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with three concourses B, C and D that are not connected airside.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B10" },
+            { "name": "Concourse C", "gates": "C1-C9" },
+            { "name": "Concourse D", "gates": "D1-D9" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Frontier Airlines", "Alaska Airlines", "Air Canada", "WestJet", "Breeze Airways", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "SAT",
+      "mapUrl": "https://flysanantonio.com/home/at-the-airport/terminal-maps/",
+      "name": "San Antonio International Airport",
+      "city": "San Antonio",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "The larger terminal, serving most carriers and all international flights.",
+          "concourses": [ { "name": "Terminal A", "gates": "A1-A17" } ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "Alaska Airlines", "Frontier Airlines", "Sun Country Airlines", "Aeromexico", "Viva Aerobus"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Smaller terminal home to American and United.",
+          "concourses": [ { "name": "Terminal B", "gates": "B1-B8" } ],
+          "airlines": ["American Airlines", "United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "CLE",
+      "mapUrl": "https://www.clevelandairport.com/airport/airport-terminal-map",
+      "name": "Cleveland Hopkins International Airport",
+      "city": "Cleveland",
+      "state": "OH",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "One terminal with three connected concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A14" },
+            { "name": "Concourse B", "gates": "B1-B11" },
+            { "name": "Concourse C", "gates": "C2-C29" }
+          ],
+          "airlines": ["United Airlines", "American Airlines", "Delta Air Lines", "Southwest Airlines", "Frontier Airlines", "Alaska Airlines", "JetBlue", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "PIT",
+      "mapUrl": "https://map.flypittsburgh.com/",
+      "name": "Pittsburgh International Airport",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "terminals": [
+        {
+          "name": "Airside Terminal",
+          "description": "Four concourses reached from the new Landside Terminal via the Skybridge.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A25" },
+            { "name": "Concourse B", "gates": "B1-B25" },
+            { "name": "Concourse C", "gates": "C1-C11" },
+            { "name": "Concourse D", "gates": "D1-D7" }
+          ],
+          "transit": "Skybridge (covered pedestrian walkway from the Landside Terminal)",
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines", "JetBlue", "Alaska Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "IND",
+      "mapUrl": "https://www.ind.com/maps-directions",
+      "name": "Indianapolis International Airport",
+      "city": "Indianapolis",
+      "state": "IN",
+      "terminals": [
+        {
+          "name": "Col. H. Weir Cook Terminal",
+          "description": "A single terminal with concourses A and B off a central Civic Plaza.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A2-A25" },
+            { "name": "Concourse B", "gates": "B3-B25" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "Alaska Airlines", "Allegiant Air", "Frontier Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "CMH",
+      "mapUrl": "https://flycolumbus.com/passengers/terminal-map/",
+      "name": "John Glenn Columbus International Airport",
+      "city": "Columbus",
+      "state": "OH",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with three concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B16" },
+            { "name": "Concourse C", "gates": "C1-C11" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "United Airlines", "Delta Air Lines", "Alaska Airlines", "Frontier Airlines", "Breeze Airways", "Sun Country Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "CVG",
+      "mapUrl": "https://www.cvgairport.com/map/",
+      "name": "Cincinnati/Northern Kentucky International Airport",
+      "city": "Hebron",
+      "state": "KY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Main terminal connected to two satellite concourses by an underground walkway.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A23" },
+            { "name": "Concourse B", "gates": "B1-B28" }
+          ],
+          "transit": "Underground walkway with moving walkways to the concourses",
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "Alaska Airlines", "Frontier Airlines", "Allegiant Air", "Sun Country Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "JAX",
+      "mapUrl": "https://jaxairport.com/map/",
+      "name": "Jacksonville International Airport",
+      "city": "Jacksonville",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and C on either side of a central checkpoint.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A10" },
+            { "name": "Concourse C", "gates": "C1-C10" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "JetBlue", "Allegiant Air", "Breeze Airways", "Sun Country Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "PBI",
+      "mapUrl": "https://www.pbia.org/guide/terminal-map/",
+      "name": "Palm Beach International Airport",
+      "city": "West Palm Beach",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with three concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A4" },
+            { "name": "Concourse B", "gates": "B1-B14" },
+            { "name": "Concourse C", "gates": "C1-C16" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "JetBlue", "Frontier Airlines", "Air Canada", "Breeze Airways", "Sun Country Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "ONT",
+      "mapUrl": "https://www.flyontario.com/at-airport/terminal-maps",
+      "name": "Ontario International Airport",
+      "city": "Ontario",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal 2",
+          "description": "Serves most domestic and international carriers.",
+          "concourses": [ { "name": "Terminal 2", "gates": "201-212" } ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "Frontier Airlines", "JetBlue", "United Airlines", "Avianca", "China Airlines", "Volaris"]
+        },
+        {
+          "name": "Terminal 4",
+          "description": "Home to American, Southwest and Hawaiian.",
+          "concourses": [ { "name": "Terminal 4", "gates": "401-414" } ],
+          "airlines": ["American Airlines", "Southwest Airlines", "Hawaiian Airlines", "Starlux Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BUR",
+      "mapUrl": "https://www.hollywoodburbankairport.com/about-us/airport-facility-maps/",
+      "name": "Hollywood Burbank Airport",
+      "city": "Burbank",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "The larger terminal, home to Southwest Airlines.",
+          "concourses": [ { "name": "Terminal A", "gates": "A1-A9" } ],
+          "airlines": ["Southwest Airlines"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Serves all carriers other than Southwest.",
+          "concourses": [ { "name": "Terminal B", "gates": "B1-B5" } ],
+          "airlines": ["Alaska Airlines", "American Airlines", "Delta Air Lines", "Frontier Airlines", "JetBlue", "United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "MKE",
+      "mapUrl": "https://www.mitchellairport.com/airport-guide/interactive-terminal-guide",
+      "name": "Milwaukee Mitchell International Airport",
+      "city": "Milwaukee",
+      "state": "WI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A compact terminal with concourses C and D off a central atrium.",
+          "concourses": [
+            { "name": "Concourse C", "gates": "C9-C25" },
+            { "name": "Concourse D", "gates": "D27-D56" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "Alaska Airlines", "Frontier Airlines", "JetBlue", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ANC",
+      "mapUrl": "https://dot.alaska.gov/anc/passengers-terminal-maps.shtml",
+      "name": "Ted Stevens Anchorage International Airport",
+      "city": "Anchorage",
+      "state": "AK",
+      "terminals": [
+        {
+          "name": "South Terminal",
+          "description": "The domestic terminal, hub of the A, B and C concourses.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A14" },
+            { "name": "Concourse B", "gates": "B1-B10" },
+            { "name": "Concourse C", "gates": "C1-C8" }
+          ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "Hawaiian Airlines", "JetBlue", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "OGG",
+      "mapUrl": "https://airports.hawaii.gov/ogg/airport-map/",
+      "name": "Kahului Airport",
+      "city": "Kahului",
+      "state": "HI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Maui's main terminal handling overseas and inter-island flights.",
+          "concourses": [
+            { "name": "South Gates", "gates": "1-16" },
+            { "name": "North Gates", "gates": "17-39" }
+          ],
+          "airlines": ["Hawaiian Airlines", "Alaska Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "WestJet"]
+        },
+        {
+          "name": "Commuter Terminal",
+          "description": "Adjacent terminal for inter-island commuter flights.",
+          "concourses": [ { "name": "Commuter Gates", "gates": "1-4" } ],
+          "airlines": ["Mokulele Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "OMA",
+      "mapUrl": "https://www.flyoma.com/passenger-services/airport-maps/",
+      "name": "Eppley Airfield",
+      "city": "Omaha",
+      "state": "NE",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with Concourse A (south) and Concourse B (north).",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A10" },
+            { "name": "Concourse B", "gates": "B11-B20" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "Alaska Airlines", "Allegiant Air", "Frontier Airlines", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ABQ",
+      "mapUrl": "https://www.abqsunport.com/terminal-maps/",
+      "name": "Albuquerque International Sunport",
+      "city": "Albuquerque",
+      "state": "NM",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B reachable on foot.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A13" },
+            { "name": "Concourse B", "gates": "B1-B9" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines", "JetBlue", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BDL",
+      "mapUrl": "https://www.google.com/search?q=BDL+Bradley+International+Airport+official+terminal+map",
+      "name": "Bradley International Airport",
+      "city": "Hartford",
+      "state": "CT",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "A single terminal with an East and a West concourse.",
+          "concourses": [
+            { "name": "East Concourse", "gates": "1-12" },
+            { "name": "West Concourse", "gates": "20-30" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Frontier Airlines", "Breeze Airways", "Sun Country Airlines", "Aer Lingus", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "BUF",
+      "mapUrl": "https://www.google.com/search?q=BUF+Buffalo+Niagara+International+Airport+official+terminal+map",
+      "name": "Buffalo Niagara International Airport",
+      "city": "Buffalo",
+      "state": "NY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal building with one connected gate concourse.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-28" } ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "JetBlue", "United Airlines", "Frontier Airlines", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ELP",
+      "mapUrl": "https://www.google.com/search?q=ELP+El+Paso+International+Airport+official+terminal+map",
+      "name": "El Paso International Airport",
+      "city": "El Paso",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal split into Concourse A (west) and Concourse B (east).",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A4" },
+            { "name": "Concourse B", "gates": "B1-B11" }
+          ],
+          "airlines": ["American Airlines", "Southwest Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "RIC",
+      "mapUrl": "https://flyrichmond.com/terminal-guide/",
+      "name": "Richmond International Airport",
+      "city": "Richmond",
+      "state": "VA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal that branches into concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A15" },
+            { "name": "Concourse B", "gates": "B1-B15" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "JetBlue", "Allegiant Air", "Breeze Airways"]
+        }
+      ]
+    },
+    {
+      "code": "BHM",
+      "mapUrl": "https://www.flybirmingham.com/terminal-maps/",
+      "name": "Birmingham-Shuttlesworth International Airport",
+      "city": "Birmingham",
+      "state": "AL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with three concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A8" },
+            { "name": "Concourse B", "gates": "B1-B5" },
+            { "name": "Concourse C", "gates": "C1-C6" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "Southwest Airlines", "United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BOI",
+      "mapUrl": "https://www.iflyboise.com/airport-guide/airport-map/",
+      "name": "Boise Airport",
+      "city": "Boise",
+      "state": "ID",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses B and C.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B10-B22" },
+            { "name": "Concourse C", "gates": "C1-C12" }
+          ],
+          "airlines": ["Alaska Airlines", "Southwest Airlines", "Delta Air Lines", "United Airlines", "American Airlines", "Allegiant Air", "Avelo Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ORF",
+      "mapUrl": "https://www.flyorf.com/terminal-guide/",
+      "name": "Norfolk International Airport",
+      "city": "Norfolk",
+      "state": "VA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with Concourse A (north) and Concourse B (south).",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A11" },
+            { "name": "Concourse B", "gates": "B16-B30" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines", "Allegiant Air", "Breeze Airways"]
+        }
+      ]
+    },
+    {
+      "code": "TUS",
+      "mapUrl": "https://flytucson.com/in_the_terminal/terminal_map.php",
+      "name": "Tucson International Airport",
+      "city": "Tucson",
+      "state": "AZ",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A9" },
+            { "name": "Concourse B", "gates": "B1-B11" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "Alaska Airlines", "Frontier Airlines", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "GEG",
+      "mapUrl": "https://spokaneairports.net/terminal-map",
+      "name": "Spokane International Airport",
+      "city": "Spokane",
+      "state": "WA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A central terminal serving concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A10" },
+            { "name": "Concourse B", "gates": "B1-B13" },
+            { "name": "Concourse C", "gates": "C1-C5" }
+          ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "American Airlines", "Allegiant Air", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "CHS",
+      "mapUrl": "https://iflychs.com/passengers/terminal-map/",
+      "name": "Charleston International Airport",
+      "city": "Charleston",
+      "state": "SC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A (east) and B (west).",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A7" },
+            { "name": "Concourse B", "gates": "B1-B10" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "Southwest Airlines", "United Airlines", "JetBlue", "Breeze Airways", "Frontier Airlines", "Avelo Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "PVD",
+      "mapUrl": "https://flyri.com/passengers/terminal-map/",
+      "name": "Rhode Island T. F. Green International Airport",
+      "city": "Providence",
+      "state": "RI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B14" }
+          ],
+          "airlines": ["Southwest Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "JetBlue", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "MEM",
+      "mapUrl": "https://flymemphis.com/terminal-map/",
+      "name": "Memphis International Airport",
+      "city": "Memphis",
+      "state": "TN",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single Y-shaped concourse (Concourse B) handling all passenger flights.",
+          "concourses": [ { "name": "Concourse B", "gates": "B1-B44" } ],
+          "airlines": ["Delta Air Lines", "American Airlines", "Southwest Airlines", "United Airlines", "Allegiant Air", "Breeze Airways", "Frontier Airlines", "Southern Airways Express"]
+        }
+      ]
+    },
+    {
+      "code": "OKC",
+      "mapUrl": "https://www.google.com/search?q=OKC+Will+Rogers+World+Airport+official+terminal+map",
+      "name": "Will Rogers World Airport",
+      "city": "Oklahoma City",
+      "state": "OK",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with West, Central and East concourses.",
+          "concourses": [
+            { "name": "West Concourse", "gates": "1-12" },
+            { "name": "Central Concourse", "gates": "14-24" },
+            { "name": "East Concourse", "gates": "26-32" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "GRR",
+      "mapUrl": "https://www.grr.org/terminal-map",
+      "name": "Gerald R. Ford International Airport",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A15" },
+            { "name": "Concourse B", "gates": "B1-B8" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "Frontier Airlines", "Allegiant Air", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "SDF",
+      "mapUrl": "https://www.flylouisville.com/terminal-map/",
+      "name": "Louisville Muhammad Ali International Airport",
+      "city": "Louisville",
+      "state": "KY",
+      "terminals": [
+        {
+          "name": "Jerry E. Abramson Terminal",
+          "description": "A single terminal with concourses A and B connected by a rotunda.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A15" },
+            { "name": "Concourse B", "gates": "B2-B19" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "TUL",
+      "mapUrl": "https://flytulsa.com/travel/amenities/terminal-map/",
+      "name": "Tulsa International Airport",
+      "city": "Tulsa",
+      "state": "OK",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A11" },
+            { "name": "Concourse B", "gates": "B1-B10" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "RNO",
+      "mapUrl": "https://www.renoairport.com/at-the-airport/terminal-maps/",
+      "name": "Reno-Tahoe International Airport",
+      "city": "Reno",
+      "state": "NV",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses B and C.",
+          "concourses": [
+            { "name": "Concourse B", "gates": "B1-B11" },
+            { "name": "Concourse C", "gates": "C1-C12" }
+          ],
+          "airlines": ["Southwest Airlines", "Alaska Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "JetBlue", "Volaris"]
+        }
+      ]
+    },
+    {
+      "code": "DSM",
+      "mapUrl": "https://www.google.com/search?q=DSM+Des+Moines+International+Airport+official+terminal+map",
+      "name": "Des Moines International Airport",
+      "city": "Des Moines",
+      "state": "IA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse C", "gates": "C1-C7" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "GSP",
+      "mapUrl": "https://gspairport.com/terminal-map/",
+      "name": "Greenville-Spartanburg International Airport",
+      "city": "Greer",
+      "state": "SC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single compact terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A9" },
+            { "name": "Concourse B", "gates": "B1-B4" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "Allegiant Air", "Avelo Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "PNS",
+      "mapUrl": "https://flypensacola.com/go/maps/",
+      "name": "Pensacola International Airport",
+      "city": "Pensacola",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B7" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "SYR",
+      "mapUrl": "https://syrairport.org/airport-guide/terminal-maps/",
+      "name": "Syracuse Hancock International Airport",
+      "city": "Syracuse",
+      "state": "NY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B off a central rotunda.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "1-15" },
+            { "name": "Concourse B", "gates": "20-27" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "JetBlue", "Frontier Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "GSO",
+      "mapUrl": "https://flyfrompti.com/terminal-maps/",
+      "name": "Piedmont Triad International Airport",
+      "city": "Greensboro",
+      "state": "NC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A10" },
+            { "name": "Concourse B", "gates": "B1-B14" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "ALB",
+      "mapUrl": "https://www.albanyairport.com/directions-terminal-map",
+      "name": "Albany International Airport",
+      "city": "Albany",
+      "state": "NY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A8" },
+            { "name": "Concourse B", "gates": "B1-B10" },
+            { "name": "Concourse C", "gates": "C1-C4" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "JetBlue", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "BTV",
+      "mapUrl": "https://www.btv.aero/at-btv/terminal-map",
+      "name": "Patrick Leahy Burlington International Airport",
+      "city": "Burlington",
+      "state": "VT",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with North and South concourses linked post-security.",
+          "concourses": [
+            { "name": "North Concourse", "gates": "1-8" },
+            { "name": "South Concourse", "gates": "9-15" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "JetBlue", "Frontier Airlines", "Sun Country Airlines", "Breeze Airways"]
+        }
+      ]
+    },
+    {
+      "code": "SAV",
+      "mapUrl": "https://savannahairport.com/airport/terminal-map/",
+      "name": "Savannah/Hilton Head International Airport",
+      "city": "Savannah",
+      "state": "GA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A9" },
+            { "name": "Concourse B", "gates": "B1-B6" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "JetBlue", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "ROC",
+      "mapUrl": "https://www.rocairport.com/terminal-map",
+      "name": "Frederick Douglass Greater Rochester International Airport",
+      "city": "Rochester",
+      "state": "NY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with the Frederick Douglass (A) and Susan B. Anthony (B) concourses.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A11" },
+            { "name": "Concourse B", "gates": "B1-B10" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "JetBlue", "Allegiant Air", "Avelo Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "CHA",
+      "mapUrl": "https://www.flycha.com/terminal-overview",
+      "name": "Chattanooga Metropolitan Airport",
+      "city": "Chattanooga",
+      "state": "TN",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single compact terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B4" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "GRB",
+      "mapUrl": "https://www.flygrb.com/about-us/passenger-terminal-diagram/",
+      "name": "Green Bay-Austin Straubel International Airport",
+      "city": "Green Bay",
+      "state": "WI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B6" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "MHT",
+      "mapUrl": "https://www.flymanchester.com/at-the-airport/terminal-map/",
+      "name": "Manchester-Boston Regional Airport",
+      "city": "Manchester",
+      "state": "NH",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B19" }
+          ],
+          "airlines": ["Southwest Airlines", "American Airlines", "Delta Air Lines", "United Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "FAT",
+      "mapUrl": "https://flyfresno.com/print-terminal-map/",
+      "name": "Fresno Yosemite International Airport",
+      "city": "Fresno",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B4" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Alaska Airlines", "Southwest Airlines", "Volaris", "Aeromexico"]
+        }
+      ]
+    },
+    {
+      "code": "SJU",
+      "mapUrl": "https://www.google.com/search?q=SJU+Luis+Munoz+Marin+International+Airport+official+terminal+map",
+      "name": "Luis Munoz Marin International Airport",
+      "city": "San Juan",
+      "state": "PR",
+      "terminals": [
+        {
+          "name": "Terminal A",
+          "description": "JetBlue's primary terminal with its own ticketing.",
+          "concourses": [ { "name": "Terminal A", "gates": "A1-A8" } ],
+          "airlines": ["JetBlue", "Air Canada", "Avelo Airlines", "Tradewind Aviation"]
+        },
+        {
+          "name": "Terminal B",
+          "description": "Shared ticketing for the B, C and D concourses; domestic mainland carriers.",
+          "concourses": [ { "name": "Concourse B", "gates": "B2-B10" } ],
+          "airlines": ["Delta Air Lines", "United Airlines", "Southwest Airlines"]
+        },
+        {
+          "name": "Terminal C",
+          "description": "American and international carriers, plus JetBlue international arrivals.",
+          "concourses": [ { "name": "Concourse C", "gates": "C2-C10" } ],
+          "airlines": ["American Airlines", "Avianca", "Copa Airlines", "Frontier Airlines", "Iberia"]
+        },
+        {
+          "name": "Terminal D",
+          "description": "Regional and commuter operators.",
+          "concourses": [ { "name": "Concourse D", "gates": "D1-D9" } ],
+          "airlines": ["Cape Air", "Silver Airways"]
+        }
+      ]
+    },
+    {
+      "code": "KOA",
+      "mapUrl": "https://airports.hawaii.gov/koa/airport-map/",
+      "name": "Ellison Onizuka Kona International Airport at Keahole",
+      "city": "Kailua-Kona",
+      "state": "HI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "An open-air terminal complex of interconnected pavilions.",
+          "concourses": [
+            { "name": "Terminal 1", "gates": "1-5" },
+            { "name": "Terminal 2", "gates": "6-10" },
+            { "name": "Commuter Gates", "gates": "11-12" }
+          ],
+          "airlines": ["Hawaiian Airlines", "United Airlines", "Delta Air Lines", "Alaska Airlines", "American Airlines", "Southwest Airlines", "Air Canada", "Japan Airlines", "Mokulele Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "LIH",
+      "mapUrl": "https://airports.hawaii.gov/lih/airport-map/",
+      "name": "Lihue Airport",
+      "city": "Lihue",
+      "state": "HI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "Kauai's main terminal handling overseas and inter-island flights.",
+          "concourses": [ { "name": "Main Gates", "gates": "1-10" } ],
+          "airlines": ["Hawaiian Airlines", "Southwest Airlines", "Alaska Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "WestJet", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "MYR",
+      "mapUrl": "https://www.flymyrtlebeach.com/information/airport-map/",
+      "name": "Myrtle Beach International Airport",
+      "city": "Myrtle Beach",
+      "state": "SC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single modern terminal with concourses A and B off a central atrium.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B7" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "PWM",
+      "mapUrl": "https://portlandjetport.org/jetport-map",
+      "name": "Portland International Jetport",
+      "city": "Portland",
+      "state": "ME",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with a connected gate concourse.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-12" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "Southwest Airlines", "United Airlines", "JetBlue", "Breeze Airways"]
+        }
+      ]
+    },
+    {
+      "code": "MDT",
+      "mapUrl": "https://www.flyhia.com/at-the-airport/airport-maps/terminal-map-updated-for-web/",
+      "name": "Harrisburg International Airport",
+      "city": "Harrisburg",
+      "state": "PA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A pier-finger terminal with concourses A, B and C.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A8" },
+            { "name": "Concourse B", "gates": "B1-B6" },
+            { "name": "Concourse C", "gates": "C1-C3" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "PSP",
+      "mapUrl": "https://flypsp.com/terminal-map/",
+      "name": "Palm Springs International Airport",
+      "city": "Palm Springs",
+      "state": "CA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "An open-air terminal with the Sonny Bono and Agua Caliente concourses.",
+          "concourses": [
+            { "name": "Sonny Bono Concourse", "gates": "4-11" },
+            { "name": "Agua Caliente Concourse", "gates": "12-20" }
+          ],
+          "airlines": ["Alaska Airlines", "American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "JetBlue", "Allegiant Air", "WestJet", "Sun Country Airlines", "Air Canada"]
+        }
+      ]
+    },
+    {
+      "code": "SRQ",
+      "mapUrl": "https://flysrq.com/terminal-map",
+      "name": "Sarasota Bradenton International Airport",
+      "city": "Sarasota",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B14" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Southwest Airlines", "JetBlue", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "ITO",
+      "mapUrl": "https://airports.hawaii.gov/ito/airport-map/",
+      "name": "Hilo International Airport",
+      "city": "Hilo",
+      "state": "HI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A compact terminal for inter-island and mainland flights.",
+          "concourses": [ { "name": "Main Gates", "gates": "1-10" } ],
+          "airlines": ["Hawaiian Airlines", "Southwest Airlines", "United Airlines", "Mokulele Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "EUG",
+      "mapUrl": "https://www.google.com/search?q=EUG+Eugene+Airport+official+terminal+map",
+      "name": "Eugene Airport",
+      "city": "Eugene",
+      "state": "OR",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A4" },
+            { "name": "Concourse B", "gates": "B1-B5" }
+          ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "American Airlines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "BLI",
+      "mapUrl": "https://www.google.com/search?q=BLI+Bellingham+International+Airport+official+terminal+map",
+      "name": "Bellingham International Airport",
+      "city": "Bellingham",
+      "state": "WA",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single, easy-to-navigate terminal with six gates.",
+          "concourses": [ { "name": "Main Gates", "gates": "1-6" } ],
+          "airlines": ["Alaska Airlines", "Allegiant Air", "Southwest Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "FNT",
+      "mapUrl": "https://www.bishopairport.org/terminal-info/terminal-information-overview/eat-shop-relax/terminal-map",
+      "name": "Bishop International Airport",
+      "city": "Flint",
+      "state": "MI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A13" },
+            { "name": "Concourse B", "gates": "B1-B9" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "AVL",
+      "mapUrl": "https://flyavl.com/maps",
+      "name": "Asheville Regional Airport",
+      "city": "Asheville",
+      "state": "NC",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B (expanded in 2025).",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B7" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air", "JetBlue", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "COS",
+      "mapUrl": "https://coloradosprings.gov/flycos/maps-and-directions",
+      "name": "Colorado Springs Airport",
+      "city": "Colorado Springs",
+      "state": "CO",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal whose main concourse handles all commercial flights.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-12" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "LIT",
+      "mapUrl": "https://www.clintonairport.com/airport-services/terminal-map/",
+      "name": "Bill and Hillary Clinton National Airport",
+      "city": "Little Rock",
+      "state": "AR",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single linear concourse (A and B sections) ending in a rotunda.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B6" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "XNA",
+      "mapUrl": "https://www.flyxna.com/terminal-map",
+      "name": "Northwest Arkansas National Airport",
+      "city": "Bentonville",
+      "state": "AR",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A central terminal connecting to concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A15" },
+            { "name": "Concourse B", "gates": "B1-B15" }
+          ],
+          "airlines": ["American Airlines", "United Airlines", "Delta Air Lines", "Alaska Airlines", "Southwest Airlines", "Frontier Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "TYS",
+      "mapUrl": "https://flyknoxville.com/home-traveler/terminal-map/",
+      "name": "McGhee Tyson Airport",
+      "city": "Knoxville",
+      "state": "TN",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A8" },
+            { "name": "Concourse B", "gates": "B1-B12" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air", "Avelo Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "ICT",
+      "mapUrl": "https://www.flywichita.com/maps/",
+      "name": "Wichita Dwight D. Eisenhower National Airport",
+      "city": "Wichita",
+      "state": "KS",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with one concourse serving all gates.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-12" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Southwest Airlines", "Alaska Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "MSN",
+      "mapUrl": "https://www.msnairport.com/about/facilities_maps",
+      "name": "Dane County Regional Airport",
+      "city": "Madison",
+      "state": "WI",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B4" }
+          ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Frontier Airlines", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BZN",
+      "mapUrl": "https://www.google.com/search?q=BZN+Bozeman+Yellowstone+International+Airport+official+terminal+map",
+      "name": "Bozeman Yellowstone International Airport",
+      "city": "Bozeman",
+      "state": "MT",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal that splits into concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B7" }
+          ],
+          "airlines": ["Delta Air Lines", "United Airlines", "American Airlines", "Alaska Airlines", "Allegiant Air", "JetBlue"]
+        }
+      ]
+    },
+    {
+      "code": "GPT",
+      "mapUrl": "https://www.google.com/search?q=GPT+Gulfport-Biloxi+International+Airport+official+terminal+map",
+      "name": "Gulfport-Biloxi International Airport",
+      "city": "Gulfport",
+      "state": "MS",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A2" },
+            { "name": "Concourse B", "gates": "B1-B3" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air", "Sun Country Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "TLH",
+      "mapUrl": "https://www.talgov.com/airport/airport",
+      "name": "Tallahassee International Airport",
+      "city": "Tallahassee",
+      "state": "FL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B1-B8" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Silver Airways"]
+        }
+      ]
+    },
+    {
+      "code": "FSD",
+      "mapUrl": "https://www.sfairport.com/parking/terminal-map",
+      "name": "Sioux Falls Regional Airport (Joe Foss Field)",
+      "city": "Sioux Falls",
+      "state": "SD",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with one central concourse.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-7" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "FAR",
+      "mapUrl": "https://www.fargoairport.com/at-the-airport/airport-maps/",
+      "name": "Hector International Airport",
+      "city": "Fargo",
+      "state": "ND",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A4" },
+            { "name": "Concourse B", "gates": "B1-B6" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "RAP",
+      "mapUrl": "https://rapairport.com/map/",
+      "name": "Rapid City Regional Airport",
+      "city": "Rapid City",
+      "state": "SD",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with one concourse serving all gates.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-10" } ],
+          "airlines": ["Delta Air Lines", "American Airlines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "MSO",
+      "mapUrl": "https://www.google.com/search?q=MSO+Missoula+Montana+Airport+official+terminal+map",
+      "name": "Missoula Montana Airport",
+      "city": "Missoula",
+      "state": "MT",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A modern single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "1-3" },
+            { "name": "Concourse B", "gates": "4-7" }
+          ],
+          "airlines": ["Alaska Airlines", "Delta Air Lines", "United Airlines", "American Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "HSV",
+      "mapUrl": "https://www.flyhuntsville.com/maps/",
+      "name": "Huntsville International Airport",
+      "city": "Huntsville",
+      "state": "AL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B linked by the concourse connector.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B8" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Breeze Airways", "Allegiant Air", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "BIS",
+      "mapUrl": "https://www.bismarckairport.com/161/Terminal-Information",
+      "name": "Bismarck Airport",
+      "city": "Bismarck",
+      "state": "ND",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with one concourse serving all gates.",
+          "concourses": [ { "name": "Main Concourse", "gates": "1-6" } ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Frontier Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "LEX",
+      "mapUrl": "https://www.bluegrassairport.com/terminal-map/",
+      "name": "Blue Grass Airport",
+      "city": "Lexington",
+      "state": "KY",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A6" },
+            { "name": "Concourse B", "gates": "B1-B8" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "GRK",
+      "mapUrl": "https://www.google.com/search?q=GRK+Killeen+Regional+Airport+official+terminal+map",
+      "name": "Killeen-Fort Cavazos Regional Airport",
+      "city": "Killeen",
+      "state": "TX",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with six gates serving regional flights.",
+          "concourses": [ { "name": "Main Gates", "gates": "1-6" } ],
+          "airlines": ["American Airlines"]
+        }
+      ]
+    },
+    {
+      "code": "PIA",
+      "mapUrl": "https://www.flypia.com/airport/terminal/map/",
+      "name": "General Wayne A. Downing Peoria International Airport",
+      "city": "Peoria",
+      "state": "IL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "A1-A5" },
+            { "name": "Concourse B", "gates": "B6-B10" }
+          ],
+          "airlines": ["American Airlines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    },
+    {
+      "code": "MLI",
+      "mapUrl": "https://www.qcairport.com/at-the-airport/terminal-map/",
+      "name": "Quad Cities International Airport",
+      "city": "Moline",
+      "state": "IL",
+      "terminals": [
+        {
+          "name": "Main Terminal",
+          "description": "A single terminal with concourses A and B.",
+          "concourses": [
+            { "name": "Concourse A", "gates": "1-3" },
+            { "name": "Concourse B", "gates": "6-11" }
+          ],
+          "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "Allegiant Air"]
+        }
+      ]
+    }
+  ]
+}

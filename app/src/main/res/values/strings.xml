@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Airport Maps</string>
+    <string name="search_hint">Search by airport name or code (e.g. LAX)</string>
+    <string name="subtitle">Find any US airport\'s terminals, maps &amp; airlines</string>
+    <string name="no_results">No matching US airports found</string>
+    <string name="terminals_count">%1$d terminals</string>
+    <string name="airlines_header">Airlines using this terminal</string>
+    <string name="map_header">Terminal map</string>
+    <string name="back">Back</string>
+</resources>

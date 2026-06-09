@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "PowerShell($j = Get-Content \"app\\\\src\\\\main\\\\assets\\\\airports.json\" -Raw | ConvertFrom-Json; Write-Output \\(\"Curated airports: \" + $j.airports.Count\\))",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat assembleDebug --console=plain --no-daemon -q; if \\($?\\) { Write-Output \"BUILD OK\" })",
+      "PowerShell($j = Get-Content \"app\\\\src\\\\main\\\\assets\\\\airports.json\" -Raw | ConvertFrom-Json; Write-Output \\(\"Curated airports: \" + $j.airports.Count\\); $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat assembleDebug --console=plain --no-daemon -q; if \\($?\\) { Write-Output \"BUILD OK\" })",
+      "PowerShell($j = Get-Content \"app\\\\src\\\\main\\\\assets\\\\airports.json\" -Raw | ConvertFrom-Json; Write-Output \\(\"Curated airports: \" + $j.airports.Count\\); Write-Output \\(\"Added beyond original 19: \" + \\($j.airports.Count - 19\\)\\); $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat assembleDebug --console=plain --no-daemon -q; if \\($?\\) { Write-Output \"BUILD OK\" })",
+      "PowerShell($j = Get-Content \"app\\\\src\\\\main\\\\assets\\\\airports.json\" -Raw | ConvertFrom-Json; $codes = $j.airports.code; $dupes = $codes | Group-Object | Where-Object { $_.Count -gt 1 }; if \\($dupes\\) { Write-Output \"DUPLICATES:\"; $dupes | ForEach-Object { $_.Name } } else { Write-Output \"No duplicate codes. Total unique: $\\($codes.Count\\)\" })"
+    ]
+  }
+}

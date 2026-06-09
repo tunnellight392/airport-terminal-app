@@ -1,0 +1,13 @@
+# Add project specific R8 rules here.
+# AGP will combine all keep rule files in src/main/keepRules to pass to R8
+#
+# For more details, see
+#   https://d.android.com/r/tools/r8/keep-rules
+
+# Custom Views are inflated by name from layout XML, so keep their View
+# constructors even when minifying/obfuscating.
+-keep public class com.tunnellight.airport_terminal.ui.** extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
