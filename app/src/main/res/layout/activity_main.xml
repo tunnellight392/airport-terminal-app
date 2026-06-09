@@ -41,6 +41,9 @@
             android:layout_marginTop="18dp"
             app:boxBackgroundColor="@color/white"
             app:startIconDrawable="@android:drawable/ic_menu_search"
+            app:startIconTint="@color/text_secondary"
+            app:hintTextColor="@color/text_secondary"
+            android:textColorHint="@color/text_secondary"
             app:boxCornerRadiusTopStart="14dp"
             app:boxCornerRadiusTopEnd="14dp"
             app:boxCornerRadiusBottomStart="14dp"
@@ -51,6 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_hint"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
                 android:imeOptions="actionSearch"
                 android:inputType="textCapCharacters|textNoSuggestions"
                 android:maxLines="1" />
