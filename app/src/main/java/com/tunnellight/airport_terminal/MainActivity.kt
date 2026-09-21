@@ -6,15 +6,22 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
-import com.tunnellight.airport_terminal.data.AirportRepository
 import com.tunnellight.airport_terminal.model.Airport
 import com.tunnellight.airport_terminal.ui.AirportAdapter
+import com.tunnellight.airport_terminal.ui.AirportListViewModel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: AirportListViewModel by viewModels()
 
     private lateinit var adapter: AirportAdapter
     private lateinit var emptyView: TextView
@@ -39,30 +46,45 @@ class MainActivity : AppCompatActivity() {
         searchInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                runSearch()
+                viewModel.onQueryChanged(s?.toString().orEmpty())
             }
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        // Show the curated airports immediately, then expand coverage from the network.
-        runSearch()
-        subtitle.text = "Loading more US airports…"
-        AirportRepository.ensureRemoteLoaded(this) {
-            val total = AirportRepository.airports(this).size
-            val detailed = AirportRepository.detailedAirports(this).size
-            subtitle.text = "$total US airports · $detailed with full terminal detail"
-            runSearch()
+        // Collection is tied to STARTED, so it stops while the screen is in the background and
+        // resumes with whatever state the ViewModel holds.
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { render(it) }
+            }
         }
     }
 
-    private fun runSearch() {
-        val query = searchInput.text?.toString() ?: ""
-        showResults(AirportRepository.search(this, query))
-    }
+    private fun render(state: AirportListViewModel.UiState) {
+        adapter.submit(state.results)
+        emptyView.visibility =
+            if (state.loaded && state.results.isEmpty()) View.VISIBLE else View.GONE
+        subtitle.text = when (val coverage = state.coverage) {
+            is AirportListViewModel.Coverage.Loading ->
+                getString(R.string.subtitle_loading)
 
-    private fun showResults(airports: List<Airport>) {
-        adapter.submit(airports)
-        emptyView.visibility = if (airports.isEmpty()) View.VISIBLE else View.GONE
+            is AirportListViewModel.Coverage.Ready -> getString(
+                R.string.subtitle_ready,
+                resources.getQuantityString(
+                    R.plurals.airport_count, coverage.total, coverage.total
+                ),
+                resources.getQuantityString(
+                    R.plurals.detailed_count, coverage.detailed, coverage.detailed
+                )
+            )
+
+            is AirportListViewModel.Coverage.Offline -> getString(
+                R.string.subtitle_offline,
+                resources.getQuantityString(
+                    R.plurals.detailed_count, coverage.detailed, coverage.detailed
+                )
+            )
+        }
     }
 
     private fun openAirport(airport: Airport) {

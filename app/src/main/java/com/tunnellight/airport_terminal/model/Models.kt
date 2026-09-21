@@ -56,18 +56,33 @@ data class Airport(
     /** Link to the airport's official terminal-map page, opened from the map card. */
     val mapUrl: String? = null
 ) {
+    /**
+     * Lowercased once when the airport is built, not per comparison. Search re-runs on every
+     * keystroke across the whole dataset, so folding case inside [matches] meant allocating four
+     * throwaway strings per airport per keystroke. These are declared in the class body rather
+     * than the constructor so they stay out of equals/hashCode/copy.
+     */
+    private val codeLower = code.lowercase()
+    private val nameLower = name.lowercase()
+    private val cityLower = city.lowercase()
+    private val stateLower = state.lowercase()
+
     val location: String get() = if (city.isBlank()) state else "$city, $state"
 
     /** True when we have the full terminal / map / airline breakdown (curated airports). */
     val isDetailed: Boolean get() = terminals.isNotEmpty()
 
-    /** Returns true if the query matches the IATA code or any part of the name/city. */
-    fun matches(query: String): Boolean {
-        val q = query.trim().lowercase()
-        if (q.isEmpty()) return true
-        return code.lowercase().startsWith(q) ||
-            name.lowercase().contains(q) ||
-            city.lowercase().contains(q) ||
-            state.lowercase() == q
+    /**
+     * Returns true if the query matches the IATA code or any part of the name/city.
+     *
+     * [normalizedQuery] must already be trimmed and lowercased by the caller — hoisted out so
+     * it happens once per search rather than once per airport.
+     */
+    fun matches(normalizedQuery: String): Boolean {
+        if (normalizedQuery.isEmpty()) return true
+        return codeLower.startsWith(normalizedQuery) ||
+            nameLower.contains(normalizedQuery) ||
+            cityLower.contains(normalizedQuery) ||
+            stateLower == normalizedQuery
     }
 }

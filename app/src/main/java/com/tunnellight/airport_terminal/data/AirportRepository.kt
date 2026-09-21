@@ -1,17 +1,18 @@
 package com.tunnellight.airport_terminal.data
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import com.tunnellight.airport_terminal.model.Airport
 import com.tunnellight.airport_terminal.model.Concourse
 import com.tunnellight.airport_terminal.model.Terminal
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
-import java.util.concurrent.Executors
 
 /**
  * Provides airport data from two sources, merged:
@@ -24,18 +25,41 @@ import java.util.concurrent.Executors
  */
 object AirportRepository {
 
-    private const val REMOTE_URL = "https://raw.githubusercontent.com/mwgg/Airports/master/airports.json"
-    private const val CACHE_FILE = "airports_remote.json"
+    /**
+     * The bulk dataset is a third-party repository, pinned to an exact commit rather than
+     * tracking `master`. Tracking a branch means an upstream rename, deletion or schema change
+     * would silently cut search coverage from the full US list down to the curated airports,
+     * with nothing to show for it in this codebase. Bump this deliberately, after checking the
+     * file still parses; the cache key below includes the commit, so a bump refetches.
+     */
+    private const val REMOTE_COMMIT = "2473bd8f135c10c3c0edc8af58f9aad742541575"
+    private const val REMOTE_URL =
+        "https://raw.githubusercontent.com/mwgg/Airports/$REMOTE_COMMIT/airports.json"
+
+    /** The bundled curated dataset. */
+    private const val CURATED_ASSET = "airports.json"
+
+    private const val CACHE_PREFIX = "airports_remote_"
+    private val CACHE_FILE = "$CACHE_PREFIX${REMOTE_COMMIT.take(12)}.json"
     private const val CACHE_TTL_MS = 30L * 24 * 60 * 60 * 1000 // 30 days
 
-    private var curated: List<Airport>? = null
-    private var remote: List<Airport> = emptyList()
-    @Volatile private var remoteLoaded = false
-    @Volatile private var loadingStarted = false
+    /** Outcome of the one-off bulk load, so the UI can say when coverage is reduced. */
+    enum class RemoteStatus { NotLoaded, Loaded, Unavailable }
 
-    private val executor = Executors.newSingleThreadExecutor()
-    private val mainHandler = Handler(Looper.getMainLooper())
-    private val pendingCallbacks = mutableListOf<() -> Unit>()
+    @Volatile private var curatedCache: List<Airport>? = null
+    @Volatile private var remote: List<Airport> = emptyList()
+
+    /**
+     * Cached merge of curated + remote. Previously this was rebuilt on every call, which meant a
+     * HashSet and a ~1800-element list allocated per keystroke; it only changes when [remote] does.
+     */
+    @Volatile private var mergedCache: List<Airport>? = null
+
+    @Volatile
+    var remoteStatus: RemoteStatus = RemoteStatus.NotLoaded
+        private set
+
+    private val loadMutex = Mutex()
 
     // ---- Public API ----
 
@@ -46,67 +70,72 @@ object AirportRepository {
     fun airports(context: Context): List<Airport> = merged(context)
 
     /**
-     * Search. An empty query returns just the curated/detailed airports (so the home screen
-     * isn't a dump of thousands). A non-empty query searches the full merged set. Detailed
-     * airports are ranked first.
+     * Search, off the main thread. An empty query returns just the curated/detailed airports (so
+     * the home screen isn't a dump of thousands). A non-empty query searches the full merged set.
+     * Detailed airports are ranked first.
      */
-    fun search(context: Context, query: String): List<Airport> {
-        val q = query.trim()
-        val source = if (q.isEmpty()) curated(context) else merged(context)
-        return source.asSequence()
-            .filter { it.matches(q) }
-            .sortedWith(compareByDescending<Airport> { it.isDetailed }.thenBy { it.name })
-            .take(200)
-            .toList()
+    suspend fun search(context: Context, query: String): List<Airport> {
+        val appContext = context.applicationContext
+        return withContext(Dispatchers.Default) {
+            // Case-folded once here rather than inside the per-airport predicate.
+            val q = query.trim().lowercase()
+            val source = if (q.isEmpty()) curated(appContext) else merged(appContext)
+            source.asSequence()
+                .filter { it.matches(q) }
+                .sortedWith(compareByDescending<Airport> { it.isDetailed }.thenBy { it.name })
+                .take(200)
+                .toList()
+        }
     }
 
     fun findByCode(context: Context, code: String): Airport? =
         merged(context).firstOrNull { it.code.equals(code, ignoreCase = true) }
 
     /**
-     * Kicks off the remote fetch (or cache load) on a background thread. [onLoaded] runs on the
-     * main thread once data is available. Safe to call repeatedly; only one load runs at a time.
+     * Loads the bulk dataset (from cache or network) exactly once. Safe to call concurrently:
+     * the mutex makes later callers await the in-flight load rather than starting their own.
+     * Returns the resulting [RemoteStatus] so the caller can tell the user when the app is
+     * running on curated data alone.
      */
-    fun ensureRemoteLoaded(context: Context, onLoaded: () -> Unit) {
-        if (remoteLoaded) {
-            onLoaded()
-            return
-        }
-        synchronized(pendingCallbacks) { pendingCallbacks.add(onLoaded) }
-        if (loadingStarted) return
-        loadingStarted = true
-
+    suspend fun ensureRemoteLoaded(context: Context): RemoteStatus {
         val appContext = context.applicationContext
-        executor.execute {
-            val parsed = try {
-                loadRemoteJson(appContext)?.let { parseRemote(it) } ?: emptyList()
-            } catch (e: Exception) {
-                emptyList()
+        return loadMutex.withLock {
+            if (remoteStatus != RemoteStatus.NotLoaded) return@withLock remoteStatus
+
+            val parsed = withContext(Dispatchers.IO) {
+                runCatching { loadRemoteJson(appContext)?.let { parseRemote(it) } }.getOrNull()
             }
-            mainHandler.post {
+
+            if (parsed.isNullOrEmpty()) {
+                remoteStatus = RemoteStatus.Unavailable
+            } else {
                 remote = parsed
-                remoteLoaded = true
-                val callbacks = synchronized(pendingCallbacks) {
-                    pendingCallbacks.toList().also { pendingCallbacks.clear() }
-                }
-                callbacks.forEach { it() }
+                mergedCache = null
+                remoteStatus = RemoteStatus.Loaded
             }
+            remoteStatus
         }
     }
 
     // ---- Internal ----
 
     private fun merged(context: Context): List<Airport> {
+        mergedCache?.let { return it }
         val base = curated(context)
-        if (!remoteLoaded || remote.isEmpty()) return base
-        val knownCodes = base.mapTo(HashSet()) { it.code }
-        return base + remote.filter { it.code !in knownCodes }
+        val result = if (remote.isEmpty()) {
+            base
+        } else {
+            val knownCodes = base.mapTo(HashSet()) { it.code }
+            base + remote.filter { it.code !in knownCodes }
+        }
+        mergedCache = result
+        return result
     }
 
     private fun curated(context: Context): List<Airport> {
-        curated?.let { return it }
-        val loaded = parseCurated(readAsset(context, "airports.json")).sortedBy { it.name }
-        curated = loaded
+        curatedCache?.let { return it }
+        val loaded = parseCurated(readCuratedAsset(context)).sortedBy { it.name }
+        curatedCache = loaded
         return loaded
     }
 
@@ -115,19 +144,30 @@ object AirportRepository {
         val fresh = cache.exists() && (System.currentTimeMillis() - cache.lastModified()) < CACHE_TTL_MS
         if (fresh) return cache.readText()
 
-        val fetched = httpGet(REMOTE_URL)
+        val fetched = fetchRemote()
         if (fetched != null) {
-            runCatching { cache.writeText(fetched) }
+            runCatching {
+                cache.writeText(fetched)
+                deleteStaleCaches(context)
+            }
             return fetched
         }
         // Network failed: fall back to a stale cache if we have one.
         return if (cache.exists()) cache.readText() else null
     }
 
-    private fun httpGet(urlString: String): String? {
+    /** Removes caches left behind by earlier pinned commits so they don't accumulate. */
+    private fun deleteStaleCaches(context: Context) {
+        context.filesDir.listFiles()
+            ?.filter { it.name.startsWith(CACHE_PREFIX) && it.name != CACHE_FILE }
+            ?.forEach { it.delete() }
+    }
+
+    /** Fetches the pinned bulk dataset, or null if it is unreachable. */
+    private fun fetchRemote(): String? {
         var connection: HttpURLConnection? = null
         return try {
-            connection = (URL(urlString).openConnection() as HttpURLConnection).apply {
+            connection = (URL(REMOTE_URL).openConnection() as HttpURLConnection).apply {
                 connectTimeout = 15000
                 readTimeout = 20000
                 requestMethod = "GET"
@@ -137,15 +177,15 @@ object AirportRepository {
             } else {
                 null
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             null
         } finally {
             connection?.disconnect()
         }
     }
 
-    private fun readAsset(context: Context, fileName: String): String =
-        context.assets.open(fileName).bufferedReader().use { it.readText() }
+    private fun readCuratedAsset(context: Context): String =
+        context.assets.open(CURATED_ASSET).bufferedReader().use { it.readText() }
 
     /** Parse the big keyless dataset: keep US airports that have a 3-letter IATA code. */
     private fun parseRemote(json: String): List<Airport> {
