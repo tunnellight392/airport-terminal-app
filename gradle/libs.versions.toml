@@ -11,6 +11,7 @@ constraintlayout = "2.2.2"
 lifecycle = "2.11.0"
 activity = "1.13.0"
 coroutines = "1.11.0"
+customview = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,6 +26,7 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+androidx-customview = { group = "androidx.customview", name = "customview", version.ref = "customview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

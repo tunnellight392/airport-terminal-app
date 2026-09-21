@@ -3,13 +3,20 @@ package com.tunnellight.airport_terminal.ui
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.RectF
+import android.os.Bundle
 import android.util.AttributeSet
 import android.view.GestureDetector
+import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
+import android.widget.Button
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
+import androidx.customview.widget.ExploreByTouchHelper
 import androidx.core.graphics.withTranslation
 import com.tunnellight.airport_terminal.R
 import com.tunnellight.airport_terminal.model.Concourse
@@ -54,6 +61,16 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
 
     /** Set by the gesture detector on a confirmed single tap; consumed by [onTouchEvent]. */
     private var pendingClick = false
+
+    /**
+     * Exposes each gate as a virtual accessibility node. Without this the whole map is a single
+     * undifferentiated rectangle to a screen reader, making gate selection unusable.
+     */
+    private val exploreHelper = GateExploreHelper(this)
+
+    init {
+        ViewCompat.setAccessibilityDelegate(this, exploreHelper)
+    }
 
     // View transform.
     private var scale = 1f
@@ -161,6 +178,7 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
         translateY = dp(16f)
         clampTranslation()
         invalidate()
+        exploreHelper.invalidateRoot()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -224,6 +242,7 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
 
         worldWidth = maxPierEnd + pad
         worldHeight = pad + concourses.size * rowHeight + pad
+        exploreHelper.invalidateRoot()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -274,12 +293,34 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
     }
 
     private fun handleTap(screenX: Float, screenY: Float) {
+        selectGate(gateIndexAt(screenX, screenY))
+    }
+
+    /** Index of the gate under the given view coordinates, or -1. */
+    private fun gateIndexAt(screenX: Float, screenY: Float): Int {
         val worldX = (screenX - translateX) / scale
         val worldY = (screenY - translateY) / scale
-        val hit = gateBoxes.firstOrNull { it.rect.contains(worldX, worldY) }
-        selected = hit
+        return gateBoxes.indexOfFirst { it.rect.contains(worldX, worldY) }
+    }
+
+    /** Single selection path, shared by touch and by the accessibility click action. */
+    private fun selectGate(index: Int) {
+        val gate = gateBoxes.getOrNull(index)
+        selected = gate
         invalidate()
-        if (hit != null) onGateSelected?.invoke(hit.label, hit.concourse)
+        exploreHelper.invalidateRoot()
+        if (gate != null) onGateSelected?.invoke(gate.label, gate.concourse)
+    }
+
+    /** A gate's rectangle in view coordinates, which is what accessibility bounds need. */
+    private fun viewBoundsOf(gate: GateBox): Rect {
+        val r = gate.rect
+        return Rect(
+            (r.left * scale + translateX).toInt(),
+            (r.top * scale + translateY).toInt(),
+            (r.right * scale + translateX).toInt(),
+            (r.bottom * scale + translateY).toInt()
+        )
     }
 
     private fun zoomTo(target: Float, focusX: Float, focusY: Float) {
@@ -326,5 +367,63 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
     override fun performClick(): Boolean {
         super.performClick()
         return true
+    }
+
+    override fun dispatchHoverEvent(event: MotionEvent): Boolean =
+        exploreHelper.dispatchHoverEvent(event) || super.dispatchHoverEvent(event)
+
+    override fun dispatchKeyEvent(event: KeyEvent): Boolean =
+        exploreHelper.dispatchKeyEvent(event) || super.dispatchKeyEvent(event)
+
+    override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+        exploreHelper.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+    }
+
+    private inner class GateExploreHelper(host: View) : ExploreByTouchHelper(host) {
+
+        override fun getVirtualViewAt(x: Float, y: Float): Int {
+            val index = gateIndexAt(x, y)
+            return if (index >= 0) index else HOST_ID
+        }
+
+        override fun getVisibleVirtualViews(virtualViewIds: MutableList<Int>) {
+            for (index in gateBoxes.indices) virtualViewIds.add(index)
+        }
+
+        @Suppress("DEPRECATION") // ExploreByTouchHelper still requires bounds in parent.
+        override fun onPopulateNodeForVirtualView(
+            virtualViewId: Int,
+            node: AccessibilityNodeInfoCompat
+        ) {
+            val gate = gateBoxes.getOrNull(virtualViewId)
+            if (gate == null) {
+                // Every node must carry a description and bounds or the helper throws.
+                node.contentDescription = ""
+                node.setBoundsInParent(Rect())
+                return
+            }
+            node.contentDescription =
+                context.getString(R.string.gate_content_description, gate.label, gate.concourse)
+            node.className = Button::class.java.name
+            node.isSelected = gate == selected
+            // Both are needed: the action makes the node activatable, isClickable is what the
+            // node reports about itself. Adding the action alone leaves it advertising
+            // clickable=false to accessibility services inspecting the tree.
+            node.isClickable = true
+            node.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK)
+            node.setBoundsInParent(viewBoundsOf(gate))
+        }
+
+        override fun onPerformActionForVirtualView(
+            virtualViewId: Int,
+            action: Int,
+            arguments: Bundle?
+        ): Boolean {
+            if (action != AccessibilityNodeInfoCompat.ACTION_CLICK) return false
+            if (virtualViewId !in gateBoxes.indices) return false
+            selectGate(virtualViewId)
+            return true
+        }
     }
 }

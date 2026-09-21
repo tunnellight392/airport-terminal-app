@@ -41,6 +41,15 @@
     <string name="map_gesture_hint">Drag to pan · pinch or double-tap to zoom</string>
     <string name="reset_zoom">Reset zoom</string>
     <string name="selected_gate">Selected gate</string>
+    <!-- "ATL · Atlanta" — airport code followed by city, under the terminal name. -->
+    <string name="map_airport_subtitle">%1$s · %2$s</string>
+    <!-- "Transit: Plane Train" — how travellers move between this terminal's concourses. -->
+    <string name="transit_label">Transit: %1$s</string>
+    <!-- Spoken by screen readers for each gate on the interactive map: "Gate A4, Concourse A". -->
+    <string name="gate_content_description">Gate %1$s, %2$s</string>
+
+    <!-- Shown when no installed app can open an airport's official map link. -->
+    <string name="no_map_app">No app available to open the map</string>
 
     <!-- Decorative chevron on each airport row. -->
     <string name="chevron">›</string>
