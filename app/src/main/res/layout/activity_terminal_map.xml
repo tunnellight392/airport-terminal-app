@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -37,7 +38,7 @@
                 android:id="@+id/mapTerminalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Terminal 4"
+                tools:text="Terminal 4"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -46,8 +47,8 @@
                 android:id="@+id/mapAirportName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LAX · Los Angeles"
-                android:textColor="#CFE3FF"
+                tools:text="LAX · Los Angeles"
+                android:textColor="@color/header_subtitle"
                 android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
@@ -58,7 +59,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="#E0F2F1"
+        android:background="@color/transit_bg"
         android:padding="12dp"
         android:visibility="gone">
 
@@ -72,8 +73,8 @@
             android:id="@+id/transitText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Transit"
-            android:textColor="#00695C"
+            tools:text="Transit"
+            android:textColor="@color/transit_text"
             android:textSize="13sp" />
     </LinearLayout>
 
@@ -97,7 +98,7 @@
             android:paddingEnd="14dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:text="Drag to pan · pinch or double-tap to zoom"
+            android:text="@string/map_gesture_hint"
             android:textColor="@color/white"
             android:textSize="12sp" />
 
@@ -108,10 +109,10 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
             android:src="@android:drawable/ic_menu_zoom"
-            android:contentDescription="Reset zoom"
+            android:contentDescription="@string/reset_zoom"
             app:fabSize="mini"
-            app:backgroundTint="@color/white"
-            app:tint="@color/brand_primary" />
+            app:backgroundTint="@color/card_bg"
+            app:tint="@color/text_accent" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/gateInfoCard"
@@ -119,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_margin="12dp"
+            app:cardBackgroundColor="@color/card_bg"
             app:cardCornerRadius="14dp"
             app:cardElevation="6dp"
             android:visibility="gone">
@@ -136,7 +138,7 @@
                     android:layout_height="64dp"
                     android:gravity="center"
                     android:background="@drawable/code_badge_bg"
-                    android:text="A4"
+                    tools:text="A4"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -151,7 +153,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Selected gate"
+                        android:text="@string/selected_gate"
                         android:textAllCaps="true"
                         android:textColor="@color/text_secondary"
                         android:textSize="11sp"
@@ -162,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Concourse A"
+                        tools:text="Concourse A"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />

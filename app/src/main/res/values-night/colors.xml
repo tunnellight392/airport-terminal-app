@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Dark-theme counterparts to the semantic colours in values/colors.xml. Names must stay in
+      sync with that file: a name defined there but missing here silently keeps its light value,
+      which is exactly how dark mode was broken before.
+    -->
+
+    <!-- Brand surfaces stay dark blue and keep white text; they are deepened to cut glare. -->
+    <color name="brand_primary">#0A2E63</color>
+    <color name="brand_primary_dark">#061B3A</color>
+    <color name="brand_accent">#4A8FE0</color>
+    <color name="brand_light">#17304D</color>
+    <color name="header_subtitle">#B8D4F5</color>
+
+    <!-- Page and card surfaces invert. -->
+    <color name="screen_bg">#101418</color>
+    <color name="card_bg">#FF1B2027</color>
+    <color name="text_primary">#E6ECF3</color>
+    <color name="text_secondary">#9FACBB</color>
+    <color name="text_accent">#8AB8F5</color>
+
+    <color name="search_box_bg">#FF1E2732</color>
+
+    <color name="chip_bg">#17304D</color>
+    <color name="chip_text">#AFD2FB</color>
+
+    <color name="transit_bg">#12302D</color>
+    <color name="transit_text">#7FD8CE</color>
+
+    <color name="hint_pill_bg">#CC0A2E63</color>
+
+    <color name="map_bg">#161B22</color>
+    <color name="map_spine">#3D7BC7</color>
+    <color name="map_pier">#2E4D70</color>
+    <color name="map_gate">#8AB8F5</color>
+
+    <color name="map_interactive_bg">#141920</color>
+    <color name="map_pier_fill">#2A4665</color>
+    <color name="map_pier_edge">#5B9BE0</color>
+    <color name="map_gate_fill">#FF1E2732</color>
+    <color name="map_gate_stroke">#5B9BE0</color>
+    <!-- Amber reads well on both themes, so the selected gate keeps its light value. -->
+    <color name="map_gate_selected">#FFCA28</color>
+    <color name="map_gate_text">#CFE3FF</color>
+    <color name="map_label">#CFE3FF</color>
+    <color name="map_gates_range">#9AA7B4</color>
+    <color name="map_transit_line">#26A69A</color>
+    <color name="map_transit_connector">#2E7D74</color>
+    <color name="map_station_fill">#FF1E2732</color>
+    <color name="map_station_stroke">#26A69A</color>
+    <color name="map_station_text">#7FD8CE</color>
+</resources>

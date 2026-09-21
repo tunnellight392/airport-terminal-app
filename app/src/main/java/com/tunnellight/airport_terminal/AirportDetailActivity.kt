@@ -2,7 +2,6 @@ package com.tunnellight.airport_terminal
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -10,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
@@ -39,8 +39,9 @@ class AirportDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.detailCode).text = airport.code
         findViewById<TextView>(R.id.detailName).text = airport.name
         val count = airport.terminals.size
-        val terminalLabel = if (count == 1) "1 terminal" else "$count terminals"
-        findViewById<TextView>(R.id.detailMeta).text = "${airport.location} · $terminalLabel"
+        val terminalLabel = resources.getQuantityString(R.plurals.terminal_count, count, count)
+        findViewById<TextView>(R.id.detailMeta).text =
+            getString(R.string.airport_meta, airport.location, terminalLabel)
 
         val terminalList = findViewById<RecyclerView>(R.id.terminalList)
         val emptyDetail = findViewById<LinearLayout>(R.id.emptyDetail)
@@ -56,8 +57,8 @@ class AirportDetailActivity : AppCompatActivity() {
             findViewById<MaterialButton>(R.id.officialMapButton).setOnClickListener {
                 val url = airport.mapUrl ?: return@setOnClickListener
                 try {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-                } catch (e: ActivityNotFoundException) {
+                    startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
+                } catch (_: ActivityNotFoundException) {
                     Toast.makeText(this, "No app available to open the map", Toast.LENGTH_SHORT).show()
                 }
             }

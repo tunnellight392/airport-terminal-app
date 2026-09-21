@@ -3,14 +3,14 @@ package com.tunnellight.airport_terminal.ui
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -55,8 +55,8 @@ class TerminalAdapter(
                 val context = it.context
                 if (mapUrl != null) {
                     try {
-                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl)))
-                    } catch (e: ActivityNotFoundException) {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, mapUrl.toUri()))
+                    } catch (_: ActivityNotFoundException) {
                         Toast.makeText(context, "No app available to open the map", Toast.LENGTH_SHORT).show()
                     }
                 } else {
@@ -75,8 +75,9 @@ class TerminalAdapter(
                     text = airline
                     isClickable = false
                     isCheckable = false
-                    chipBackgroundColor = ColorStateList.valueOf(Color.parseColor("#E3F2FD"))
-                    setTextColor(Color.parseColor("#0D47A1"))
+                    chipBackgroundColor =
+                        ColorStateList.valueOf(ContextCompat.getColor(context, R.color.chip_bg))
+                    setTextColor(ContextCompat.getColor(context, R.color.chip_text))
                     chipStrokeWidth = 0f
                 }
                 chips.addView(chip)

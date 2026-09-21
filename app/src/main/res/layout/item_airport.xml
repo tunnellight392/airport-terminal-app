@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -27,7 +28,7 @@
             android:layout_height="58dp"
             android:gravity="center"
             android:background="@drawable/code_badge_bg"
-            android:text="LAX"
+            tools:text="LAX"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -43,7 +44,7 @@
                 android:id="@+id/airportName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Los Angeles International Airport"
+                tools:text="Los Angeles International Airport"
                 android:textColor="@color/text_primary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -53,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Los Angeles, CA · 8 terminals"
+                tools:text="Los Angeles, CA · 8 terminals"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -61,7 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="›"
+            android:text="@string/chevron"
             android:textColor="@color/text_secondary"
             android:textSize="26sp" />
     </LinearLayout>

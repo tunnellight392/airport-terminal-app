@@ -2,11 +2,12 @@ package com.tunnellight.airport_terminal.ui
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.ContextCompat
+import com.tunnellight.airport_terminal.R
 import com.tunnellight.airport_terminal.model.Concourse
 import kotlin.math.max
 import kotlin.math.min
@@ -27,31 +28,44 @@ class TerminalMapView @JvmOverloads constructor(
     private val density = resources.displayMetrics.density
     private fun dp(value: Float) = value * density
 
+    /**
+     * Colours come from resources so the schematic follows the light / dark theme. The view is
+     * rebuilt when the activity is recreated on a theme change, so reading them once here is
+     * enough.
+     */
+    private fun themeColor(id: Int) = ContextCompat.getColor(context, id)
+
     private val spinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1565C0")
+        color = themeColor(R.color.map_spine)
         style = Paint.Style.FILL
     }
     private val pierPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#90CAF9")
+        color = themeColor(R.color.map_pier)
         style = Paint.Style.FILL
     }
     private val gatePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#0D47A1")
+        color = themeColor(R.color.map_gate)
         style = Paint.Style.FILL
     }
     private val labelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#0D47A1")
+        color = themeColor(R.color.map_label)
         textSize = dp(12f)
         isFakeBoldText = true
     }
     private val gatesLabelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#546E7A")
+        color = themeColor(R.color.map_gates_range)
         textSize = dp(10f)
     }
     private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#F1F6FB")
+        color = themeColor(R.color.map_bg)
         style = Paint.Style.FILL
     }
+
+    /**
+     * Scratch rectangle reused for every shape in [onDraw]. drawRoundRect reads it immediately
+     * and does not retain it, so one instance is enough and keeps onDraw allocation-free.
+     */
+    private val scratchRect = RectF()
 
     fun setConcourses(concourses: List<Concourse>) {
         this.concourses = concourses
@@ -71,20 +85,16 @@ class TerminalMapView @JvmOverloads constructor(
         if (concourses.isEmpty()) return
 
         val padding = dp(16f)
-        canvas.drawRoundRect(
-            RectF(0f, 0f, width.toFloat(), height.toFloat()),
-            dp(12f), dp(12f), bgPaint
-        )
+        scratchRect.set(0f, 0f, width.toFloat(), height.toFloat())
+        canvas.drawRoundRect(scratchRect, dp(12f), dp(12f), bgPaint)
 
         val rowHeight = dp(88f)
         val spineX = padding + dp(8f)
         val spineWidth = dp(10f)
 
         // Central terminal spine running top-to-bottom.
-        canvas.drawRoundRect(
-            RectF(spineX, padding, spineX + spineWidth, height - padding),
-            dp(5f), dp(5f), spinePaint
-        )
+        scratchRect.set(spineX, padding, spineX + spineWidth, height - padding)
+        canvas.drawRoundRect(scratchRect, dp(5f), dp(5f), spinePaint)
 
         val pierStartX = spineX + spineWidth
         val pierThickness = dp(14f)
@@ -101,10 +111,10 @@ class TerminalMapView @JvmOverloads constructor(
             val pierCenterY = rowTop + dp(64f)
 
             // Pier extending from the spine.
-            canvas.drawRoundRect(
-                RectF(pierStartX, pierCenterY - pierThickness / 2f, pierEndX, pierCenterY + pierThickness / 2f),
-                dp(6f), dp(6f), pierPaint
+            scratchRect.set(
+                pierStartX, pierCenterY - pierThickness / 2f, pierEndX, pierCenterY + pierThickness / 2f
             )
+            canvas.drawRoundRect(scratchRect, dp(6f), dp(6f), pierPaint)
 
             // Gates along the pier, alternating above and below it.
             val gateCount = min(concourse.gateCount, 16)
@@ -121,10 +131,8 @@ class TerminalMapView @JvmOverloads constructor(
                     } else {
                         pierCenterY + pierThickness / 2f + gateGap
                     }
-                    canvas.drawRoundRect(
-                        RectF(gx, gy, gx + gateSize, gy + gateSize),
-                        dp(1.5f), dp(1.5f), gatePaint
-                    )
+                    scratchRect.set(gx, gy, gx + gateSize, gy + gateSize)
+                    canvas.drawRoundRect(scratchRect, dp(1.5f), dp(1.5f), gatePaint)
                 }
             }
         }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme (night). -->
     <style name="Theme.Airportterminal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_accent</item>
@@ -8,5 +8,6 @@
         <item name="colorSecondaryVariant">@color/brand_primary_dark</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:statusBarColor">@color/brand_primary_dark</item>
+        <item name="android:windowBackground">@color/screen_bg</item>
     </style>
 </resources>
