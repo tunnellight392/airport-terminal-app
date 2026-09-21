@@ -8,13 +8,14 @@
     android:background="@color/screen_bg">
 
     <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/brand_primary"
         android:paddingStart="16dp"
         android:paddingEnd="20dp"
-        android:paddingTop="72dp"
+        android:paddingTop="16dp"
         android:paddingBottom="20dp">
 
         <LinearLayout

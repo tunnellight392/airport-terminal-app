@@ -1,11 +1,14 @@
 package com.tunnellight.airport_terminal
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.TextView
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -17,6 +20,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.tunnellight.airport_terminal.model.Airport
 import com.tunnellight.airport_terminal.ui.AirportAdapter
 import com.tunnellight.airport_terminal.ui.AirportListViewModel
+import com.tunnellight.airport_terminal.ui.applySystemBarInsets
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var subtitle: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -37,9 +42,14 @@ class MainActivity : AppCompatActivity() {
 
         adapter = AirportAdapter { airport -> openAirport(airport) }
 
+        // The status bar and navigation bar overlay the window edge to edge, so the real
+        // insets are applied rather than assumed with fixed padding.
+        findViewById<View>(R.id.header).applySystemBarInsets(top = true, horizontal = true)
+
         findViewById<RecyclerView>(R.id.airportList).apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = this@MainActivity.adapter
+            applySystemBarInsets(bottom = true, horizontal = true)
         }
 
         searchInput = findViewById(R.id.searchInput)

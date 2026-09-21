@@ -57,7 +57,7 @@ class TerminalAdapter(
                     try {
                         context.startActivity(Intent(Intent.ACTION_VIEW, mapUrl.toUri()))
                     } catch (_: ActivityNotFoundException) {
-                        Toast.makeText(context, "No app available to open the map", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.no_map_app, Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     context.startActivity(

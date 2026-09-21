@@ -56,6 +56,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    testOptions {
+        unitTests {
+            // The unit tests cover pure logic, but loading a class that merely references
+            // android.* types would otherwise hit the "not mocked" stub and fail.
+            isReturnDefaultValues = true
+        }
+    }
+
     lint {
         // EditedTargetSdkVersion is an IDE-only prompt that fires once when targetSdk is edited,
         // asking you to confirm you have reviewed that release's behaviour changes. It is not
@@ -86,6 +94,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.customview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)

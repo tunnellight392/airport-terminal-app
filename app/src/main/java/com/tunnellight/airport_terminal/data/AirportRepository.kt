@@ -221,8 +221,11 @@ object AirportRepository {
      * Normalises a state to its two-letter postal abbreviation so fetched airports match the
      * curated style. Handles full names ("California"), "US-CA" style prefixes, and values that
      * are already abbreviations; falls back to the original string if unrecognised.
+     *
+     * Internal rather than private so it can be unit tested directly: it is pure string logic
+     * with a long lookup table, which is exactly the kind of thing worth pinning down in tests.
      */
-    private fun normalizeState(raw: String): String {
+    internal fun normalizeState(raw: String): String {
         val state = raw.trim().removePrefix("US-").trim()
         if (state.isEmpty()) return state
         if (state.length == 2 && state.all { it.isLetter() }) return state.uppercase()
