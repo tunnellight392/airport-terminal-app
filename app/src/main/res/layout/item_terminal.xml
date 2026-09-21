@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -21,8 +22,8 @@
             android:id="@+id/terminalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Terminal 4"
-            android:textColor="@color/brand_primary"
+            tools:text="Terminal 4"
+            android:textColor="@color/text_accent"
             android:textSize="19sp"
             android:textStyle="bold" />
 
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Terminal description"
+            tools:text="Terminal description"
             android:textColor="@color/text_secondary"
             android:textSize="14sp" />
 

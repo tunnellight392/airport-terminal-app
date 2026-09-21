@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/subtitle"
-            android:textColor="#CFE3FF"
+            android:textColor="@color/header_subtitle"
             android:textSize="14sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundColor="@color/search_box_bg"
             app:startIconDrawable="@android:drawable/ic_menu_search"
             app:startIconTint="@color/text_secondary"
             app:hintTextColor="@color/text_secondary"

@@ -2,7 +2,6 @@ package com.tunnellight.airport_terminal.ui
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
@@ -10,6 +9,9 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.withTranslation
+import com.tunnellight.airport_terminal.R
 import com.tunnellight.airport_terminal.model.Concourse
 import kotlin.math.ceil
 
@@ -50,6 +52,9 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
     private var selected: GateBox? = null
     var onGateSelected: ((label: String, concourse: String) -> Unit)? = null
 
+    /** Set by the gesture detector on a confirmed single tap; consumed by [onTouchEvent]. */
+    private var pendingClick = false
+
     // View transform.
     private var scale = 1f
     private var minScale = 0.4f
@@ -59,38 +64,42 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
     private var fitScale = 1f
 
     // ---- Paints ----
-    private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EAF1F8") }
-    private val pierPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#B7D4F0") }
+    // Colours come from resources so the map follows the light / dark theme. The view is
+    // rebuilt when the activity is recreated on a theme change, so reading them once is enough.
+    private fun themeColor(id: Int) = ContextCompat.getColor(context, id)
+
+    private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = themeColor(R.color.map_interactive_bg) }
+    private val pierPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = themeColor(R.color.map_pier_fill) }
     private val pierEdgePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1565C0"); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
+        color = themeColor(R.color.map_pier_edge); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
     }
-    private val gatePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE }
+    private val gatePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = themeColor(R.color.map_gate_fill) }
     private val gateStroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1976D2"); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
+        color = themeColor(R.color.map_gate_stroke); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
     }
-    private val gateSelectedPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#FFCA28") }
+    private val gateSelectedPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = themeColor(R.color.map_gate_selected) }
     private val gateTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#0D47A1"); textAlign = Paint.Align.CENTER; isFakeBoldText = true
+        color = themeColor(R.color.map_gate_text); textAlign = Paint.Align.CENTER; isFakeBoldText = true
     }
     private val concourseLabelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#0D47A1"); isFakeBoldText = true; textSize = dp(16f)
+        color = themeColor(R.color.map_label); isFakeBoldText = true; textSize = dp(16f)
     }
     private val gatesRangePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#546E7A"); textSize = dp(12f)
+        color = themeColor(R.color.map_gates_range); textSize = dp(12f)
     }
     private val transitLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#00897B"); style = Paint.Style.STROKE
+        color = themeColor(R.color.map_transit_line); style = Paint.Style.STROKE
         strokeWidth = dp(6f); strokeCap = Paint.Cap.ROUND
     }
     private val transitConnectorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#4DB6AC"); style = Paint.Style.STROKE; strokeWidth = dp(3f)
+        color = themeColor(R.color.map_transit_connector); style = Paint.Style.STROKE; strokeWidth = dp(3f)
     }
-    private val stationFill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE }
+    private val stationFill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = themeColor(R.color.map_station_fill) }
     private val stationStroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#00897B"); style = Paint.Style.STROKE; strokeWidth = dp(3f)
+        color = themeColor(R.color.map_station_stroke); style = Paint.Style.STROKE; strokeWidth = dp(3f)
     }
     private val stationTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#00695C"); textAlign = Paint.Align.CENTER
+        color = themeColor(R.color.map_station_text); textAlign = Paint.Align.CENTER
         isFakeBoldText = true; textSize = dp(10f)
     }
 
@@ -105,6 +114,9 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
 
         override fun onSingleTapUp(e: MotionEvent): Boolean {
             handleTap(e.x, e.y)
+            // Flagged here and dispatched from onTouchEvent so the click is reported on a
+            // confirmed single tap, not on every touch.
+            pendingClick = true
             return true
         }
 
@@ -219,47 +231,46 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
         canvas.drawColor(bgPaint.color)
         if (piers.isEmpty()) return
 
-        canvas.save()
-        canvas.translate(translateX, translateY)
-        canvas.scale(scale, scale)
+        val zoom = scale
+        canvas.withTranslation(translateX, translateY) {
+            scale(zoom, zoom)
 
-        // Transit line behind the piers.
-        if (transit != null && piers.size > 1) {
-            val firstY = piers.first().stationY
-            val lastY = piers.last().stationY
-            canvas.drawLine(transitX, firstY, transitX, lastY, transitLinePaint)
+            // Transit line behind the piers.
+            if (transit != null && piers.size > 1) {
+                val firstY = piers.first().stationY
+                val lastY = piers.last().stationY
+                canvas.drawLine(transitX, firstY, transitX, lastY, transitLinePaint)
+                for (pier in piers) {
+                    canvas.drawLine(transitX, pier.stationY, pier.rect.left, pier.stationY, transitConnectorPaint)
+                }
+            }
+
+            // Piers + concourse labels.
             for (pier in piers) {
-                canvas.drawLine(transitX, pier.stationY, pier.rect.left, pier.stationY, transitConnectorPaint)
+                canvas.drawRoundRect(pier.rect, dp(7f), dp(7f), pierPaint)
+                canvas.drawRoundRect(pier.rect, dp(7f), dp(7f), pierEdgePaint)
+                canvas.drawText(pier.name, pier.labelX, pier.labelY, concourseLabelPaint)
+                canvas.drawText(pier.gatesText, pier.labelX, pier.labelY + dp(15f), gatesRangePaint)
+            }
+
+            // Transit stations on top of the line.
+            if (transit != null && piers.size > 1) {
+                for (pier in piers) {
+                    canvas.drawCircle(transitX, pier.stationY, dp(9f), stationFill)
+                    canvas.drawCircle(transitX, pier.stationY, dp(9f), stationStroke)
+                    canvas.drawText("T", transitX, pier.stationY + dp(3.5f), stationTextPaint)
+                }
+            }
+
+            // Gates with labels.
+            val textOffset = (gateTextPaint.descent() + gateTextPaint.ascent()) / 2f
+            for (gate in gateBoxes) {
+                val fill = if (gate == selected) gateSelectedPaint else gatePaint
+                canvas.drawRoundRect(gate.rect, dp(4f), dp(4f), fill)
+                canvas.drawRoundRect(gate.rect, dp(4f), dp(4f), gateStroke)
+                canvas.drawText(gate.label, gate.rect.centerX(), gate.rect.centerY() - textOffset, gateTextPaint)
             }
         }
-
-        // Piers + concourse labels.
-        for (pier in piers) {
-            canvas.drawRoundRect(pier.rect, dp(7f), dp(7f), pierPaint)
-            canvas.drawRoundRect(pier.rect, dp(7f), dp(7f), pierEdgePaint)
-            canvas.drawText(pier.name, pier.labelX, pier.labelY, concourseLabelPaint)
-            canvas.drawText(pier.gatesText, pier.labelX, pier.labelY + dp(15f), gatesRangePaint)
-        }
-
-        // Transit stations on top of the line.
-        if (transit != null && piers.size > 1) {
-            for (pier in piers) {
-                canvas.drawCircle(transitX, pier.stationY, dp(9f), stationFill)
-                canvas.drawCircle(transitX, pier.stationY, dp(9f), stationStroke)
-                canvas.drawText("T", transitX, pier.stationY + dp(3.5f), stationTextPaint)
-            }
-        }
-
-        // Gates with labels.
-        val textOffset = (gateTextPaint.descent() + gateTextPaint.ascent()) / 2f
-        for (gate in gateBoxes) {
-            val fill = if (gate == selected) gateSelectedPaint else gatePaint
-            canvas.drawRoundRect(gate.rect, dp(4f), dp(4f), fill)
-            canvas.drawRoundRect(gate.rect, dp(4f), dp(4f), gateStroke)
-            canvas.drawText(gate.label, gate.rect.centerX(), gate.rect.centerY() - textOffset, gateTextPaint)
-        }
-
-        canvas.restore()
     }
 
     private fun handleTap(screenX: Float, screenY: Float) {
@@ -301,6 +312,19 @@ class InteractiveTerminalMapView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         scaleDetector.onTouchEvent(event)
         gestureDetector.onTouchEvent(event)
+        if (pendingClick) {
+            pendingClick = false
+            performClick()
+        }
+        return true
+    }
+
+    /**
+     * Because this view consumes touches in [onTouchEvent], taps are routed through performClick
+     * so accessibility services still see a click. The gate hit-testing stays in [handleTap].
+     */
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 }

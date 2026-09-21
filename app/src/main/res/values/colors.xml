@@ -8,12 +8,63 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!--
+      Semantic colours. Every one of these has a dark-theme counterpart in
+      values-night/colors.xml, so anything that should change between light and dark must be
+      referenced through a name here rather than written as a literal in a layout, drawable
+      or Paint. Only `white` above is used as a true literal, for text sitting on the brand
+      header in both themes.
+    -->
+
+    <!-- Brand surfaces: the header bar and the airport code badge. White text sits on these. -->
     <color name="brand_primary">#0D47A1</color>
     <color name="brand_primary_dark">#08306B</color>
     <color name="brand_accent">#1565C0</color>
     <color name="brand_light">#E3F2FD</color>
+    <color name="header_subtitle">#CFE3FF</color>
+
+    <!-- Page and card surfaces. -->
     <color name="screen_bg">#F5F7FA</color>
+    <color name="card_bg">#FFFFFFFF</color>
     <color name="text_primary">#1A2330</color>
     <color name="text_secondary">#5A6675</color>
-    <color name="card_bg">#FFFFFFFF</color>
+    <!-- Blue emphasis text on a card, e.g. the terminal name. Distinct from brand_primary,
+         which is a surface: this has to invert in dark mode while the surface does not. -->
+    <color name="text_accent">#0D47A1</color>
+
+    <!-- Search field. Its background must track the input text colour or the text vanishes. -->
+    <color name="search_box_bg">#FFFFFFFF</color>
+
+    <!-- Airline chips. -->
+    <color name="chip_bg">#E3F2FD</color>
+    <color name="chip_text">#0D47A1</color>
+
+    <!-- Inter-terminal transit banner. -->
+    <color name="transit_bg">#E0F2F1</color>
+    <color name="transit_text">#00695C</color>
+
+    <!-- Floating hint pill over the interactive map (translucent over map_interactive_bg). -->
+    <color name="hint_pill_bg">#CC0D47A1</color>
+
+    <!-- Schematic map, drawn in TerminalMapView (card preview). -->
+    <color name="map_bg">#F1F6FB</color>
+    <color name="map_spine">#1565C0</color>
+    <color name="map_pier">#90CAF9</color>
+    <color name="map_gate">#0D47A1</color>
+
+    <!-- Schematic map, drawn in InteractiveTerminalMapView (full screen). -->
+    <color name="map_interactive_bg">#EAF1F8</color>
+    <color name="map_pier_fill">#B7D4F0</color>
+    <color name="map_pier_edge">#1565C0</color>
+    <color name="map_gate_fill">#FFFFFFFF</color>
+    <color name="map_gate_stroke">#1976D2</color>
+    <color name="map_gate_selected">#FFCA28</color>
+    <color name="map_gate_text">#0D47A1</color>
+    <color name="map_label">#0D47A1</color>
+    <color name="map_gates_range">#546E7A</color>
+    <color name="map_transit_line">#00897B</color>
+    <color name="map_transit_connector">#4DB6AC</color>
+    <color name="map_station_fill">#FFFFFFFF</color>
+    <color name="map_station_stroke">#00897B</color>
+    <color name="map_station_text">#00695C</color>
 </resources>

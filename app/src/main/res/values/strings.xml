@@ -3,8 +3,30 @@
     <string name="search_hint">Search by airport name or code (e.g. LAX)</string>
     <string name="subtitle">Find any US airport\'s terminals, maps &amp; airlines</string>
     <string name="no_results">No matching US airports found</string>
-    <string name="terminals_count">%1$d terminals</string>
+    <!-- Terminal count shown on the airport row and the detail header. -->
+    <plurals name="terminal_count">
+        <item quantity="one">%1$d terminal</item>
+        <item quantity="other">%1$d terminals</item>
+    </plurals>
+    <!-- "Atlanta, GA · 2 terminals" — location followed by a detail fragment. -->
+    <string name="airport_meta">%1$s · %2$s</string>
+    <!-- Stands in for the terminal count on airports with no curated breakdown. -->
+    <string name="map_and_info">Map &amp; info</string>
     <string name="airlines_header">Airlines using this terminal</string>
     <string name="map_header">Terminal map</string>
     <string name="back">Back</string>
+
+    <!-- Airport detail screen, shown when an airport has no curated terminal breakdown. -->
+    <string name="no_detail_message">Detailed terminal maps and airline listings aren\'t curated for this airport yet.</string>
+    <string name="find_official_map">Find the official airport map</string>
+    <!-- Decorative departing-plane glyph on the same screen. -->
+    <string name="departure_glyph">🛫</string>
+
+    <!-- Full-screen interactive terminal map. -->
+    <string name="map_gesture_hint">Drag to pan · pinch or double-tap to zoom</string>
+    <string name="reset_zoom">Reset zoom</string>
+    <string name="selected_gate">Selected gate</string>
+
+    <!-- Decorative chevron on each airport row. -->
+    <string name="chevron">›</string>
 </resources>
