@@ -3,6 +3,21 @@
     <string name="search_hint">Search by airport name or code (e.g. LAX)</string>
     <string name="subtitle">Find any US airport\'s terminals, maps &amp; airlines</string>
     <string name="no_results">No matching US airports found</string>
+
+    <!-- Search-screen subtitle, reflecting how much of the dataset is available. -->
+    <string name="subtitle_loading">Loading more US airports…</string>
+    <plurals name="airport_count">
+        <item quantity="one">%1$d US airport</item>
+        <item quantity="other">%1$d US airports</item>
+    </plurals>
+    <plurals name="detailed_count">
+        <item quantity="one">%1$d with full terminal detail</item>
+        <item quantity="other">%1$d with full terminal detail</item>
+    </plurals>
+    <!-- "1778 US airports · 119 with full terminal detail" -->
+    <string name="subtitle_ready">%1$s · %2$s</string>
+    <!-- Shown when the bulk dataset could not be fetched and no cache was available. -->
+    <string name="subtitle_offline">Offline · %1$s</string>
     <!-- Terminal count shown on the airport row and the detail header. -->
     <plurals name="terminal_count">
         <item quantity="one">%1$d terminal</item>
